@@ -20,16 +20,16 @@ public class NavigationBean {
 		Connection connection = ConnectionManager.connect();
 		try {
 			
+			if(connection != null) {
+				Statement stmt = connection.createStatement();
+				resultSet = stmt.executeQuery("SELECT * FROM category WHERE parent_id IS NULL OR parent_id = 0;");
 			
-			Statement stmt = connection.createStatement();
-			resultSet = stmt.executeQuery("SELECT * FROM category WHERE parent_id IS NULL OR parent_id = 0;");
+				while(resultSet.next()) {
+					cats.add(new Category(resultSet.getInt(1), resultSet.getInt(2),resultSet.getString(3), resultSet.getBoolean(4), resultSet.getString(5)));	
+				}
 			
-			while(resultSet.next()) 
-			{
-				cats.add(new Category(resultSet.getInt(1), resultSet.getInt(2),resultSet.getString(3), resultSet.getBoolean(4), resultSet.getString(5)));	
+				stmt.close();
 			}
-			
-			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
