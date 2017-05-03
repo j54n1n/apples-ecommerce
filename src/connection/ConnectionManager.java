@@ -8,12 +8,12 @@ public class ConnectionManager {
 	Statement st = null;
 	ResultSet rs = null;
 
-	//public static final String url = "jdbc:postgresql://localhost/DBS";
-	//public static final String user = "postgres";
-	//public static final String pw = "postgres";
-	public static final String url = "jdbc:postgresql://alcor.inf.unibz.it/ds_group9";
-	public static final String user = "ds_group9";
-	public static final String pw = "ohD6chai";
+	public static final String url = "jdbc:postgresql://localhost/DBS";
+	public static final String user = "postgres";
+	public static final String pw = "postgres";
+	//public static final String url = "jdbc:postgresql://alcor.inf.unibz.it/ds_group9";
+	//public static final String user = "ds_group9";
+	//public static final String pw = "ohD6chai";
 	
 	public static Connection connect() {
 	 try {
@@ -32,7 +32,9 @@ public class ConnectionManager {
 	
 	public static void close(Connection c)  {
 		try {
-			c.close();
+			if(c != null) {
+				c.close();
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
