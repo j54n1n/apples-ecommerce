@@ -1,18 +1,17 @@
 /******************************************************************************
- * ds_group9
- * Patrick Alber - patrick.alber@stud-inf.unibz.it
- * Benjamin Groeber - benjamin.groeber@stud-inf.unibz.it
+ * System Security 2017
+ * Luca Pellegrini - luca.pellegrini@stud-inf.unibz.it
+ * Sebastiano Santini - sebastiano.santini@stud-inf.unibz.it
  * Julian Sanin - julian.sanin@stud-inf.unibz.it
  ******************************************************************************/
 
 -- Table: address
-CREATE TABLE address
+CREATE TABLE user
 (
-  address_id serial NOT NULL,
+  user_id serial NOT NULL unique,
   salutation character varying(16) NOT NULL,
   firstname character varying(32) NOT NULL,
   lastname character varying(32) NOT NULL,
-  company character varying(64),
   country character varying(16) NOT NULL,
   province character varying(32) NOT NULL,
   city character varying(32) NOT NULL,
@@ -20,7 +19,7 @@ CREATE TABLE address
   "streetNo" character varying(5) NOT NULL,
   zip character varying(8) NOT NULL,
   title character varying(16),
-  CONSTRAINT address_pkey PRIMARY KEY (address_id) --trivial primary key
+  CONSTRAINT user_pkey PRIMARY KEY (user_id) --trivial primary key
 );
 
 -- Table: auction_status
