@@ -20,10 +20,10 @@ CREATE TABLE purchase
   purchase_date date NOT NULL,
   purchase_status integer NOT NULL, --can be accepted, processed, refused, shipped
   CONSTRAINT purchase_pkey PRIMARY KEY (purchase_id), --trivial primary key
-  CONSTRAINT purchase_customer_fkey FOREIGN KEY (customer) --foreign key of an N-1 relation to customer
-      REFERENCES costumer (costumer_id) MATCH SIMPLE      --accept also partial filled columns
-      ON UPDATE CASCADE ON DELETE RESTRICT
-  CONSTRAINT purchase_product_fkey FOREIGN KEY (product)
+  CONSTRAINT purchase_customer_fkey FOREIGN KEY (customer_id) --foreign key of an N-1 relation to customer
+      REFERENCES customer (customer_id) MATCH SIMPLE      --accept also partial filled columns
+      ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT purchase_product_fkey FOREIGN KEY (product_id)
       REFERENCES product (product_id) MATCH SIMPLE      --accept also partial filled columns
       ON UPDATE CASCADE ON DELETE RESTRICT        --keep statuses actual, but we don't want to allow to 
 );
@@ -50,13 +50,13 @@ CREATE TABLE product
   price INTEGER NOT NULL,
   price_type INTEGER NOT NULL, -- 1 per kg, 2 per piece
   CONSTRAINT product_pkey PRIMARY KEY (product_id), --trivial primary key
-  CONSTRAINT product_category_fkey FROREIGN KEY (category)
+  CONSTRAINT product_category_fkey FOREIGN KEY (category_id)
       REFERENCES category (category_id) MATCH SIMPLE      --accept also partial filled columns
-      ON UPDATE CASCADE ON DELETE RESTRICT
-  CONSTRAINT product_purchase_fkey FOREIGN KEY (purchase) --foreign key of an N-1 relation to customer
+      ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT product_purchase_fkey FOREIGN KEY (purchase_id) --foreign key of an N-1 relation to customer
       REFERENCES purchase (purchase_id) MATCH SIMPLE      --accept also partial filled columns
-      ON UPDATE CASCADE ON DELETE RESTRICT
-  CONSTRAINT product_cart_fkey FOREIGN KEY (cart)
+      ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT product_cart_fkey FOREIGN KEY (cart_id)
       REFERENCES cart (cart_id) MATCH SIMPLE      --accept also partial filled columns
       ON UPDATE CASCADE ON DELETE RESTRICT                          --keep statuses actual, but we don't want to allow to 
 );
@@ -67,7 +67,7 @@ CREATE TABLE cart
   total integer NOT NULL,
   cart_date date NOT NULL,
   CONSTRAINT cart_pkey PRIMARY KEY (cart_id), --trivial primary key
-  CONSTRAINT cart_product_fkey FOREIGN KEY (product) --foreign key of an N-1 relation to customer
+  CONSTRAINT cart_product_fkey FOREIGN KEY (product_id) --foreign key of an N-1 relation to customer
       REFERENCES product (product_id) MATCH SIMPLE      --accept also partial filled columns
       ON UPDATE CASCADE ON DELETE RESTRICT 
 );
@@ -77,7 +77,7 @@ CREATE TABLE category
   category_id serial NOT NULL,
   title character varying(32) NOT NULL,
   CONSTRAINT category_pkey PRIMARY KEY (category_id), --trivial primary key
-  CONSTRAINT category_product_fkey FOREIGN KEY (product) --foreign key of an N-1 relation to customer
+  CONSTRAINT category_product_fkey FOREIGN KEY (product_id) --foreign key of an N-1 relation to customer
       REFERENCES product (product_id) MATCH SIMPLE      --accept also partial filled columns
       ON UPDATE CASCADE ON DELETE RESTRICT
 );
