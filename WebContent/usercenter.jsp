@@ -44,7 +44,7 @@
 	  int clientId = Integer.parseInt(""+session.getAttribute("clientID"));
 	  db.Client client = db.Client.find(clientId);
 	  pageContext.setAttribute("client", client);
-	  pageContext.setAttribute("addresses", db.Address.findByClient(clientId));
+	 // pageContext.setAttribute("addresses", db.Address.findByClient(clientId));
 	  
 	  %>
       

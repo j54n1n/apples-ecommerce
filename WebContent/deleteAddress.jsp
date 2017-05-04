@@ -29,7 +29,7 @@
     	
         <%
 			int addressId = Integer.parseInt(""+pageContext.getAttribute("addressId"));
-			db.Address address = db.Address.find(addressId);
+			//db.Address address = db.Address.find(addressId);
 			boolean result = address.delete();
 			pageContext.setAttribute("result",result);
 		%>

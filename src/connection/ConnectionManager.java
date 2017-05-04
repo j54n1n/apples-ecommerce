@@ -8,7 +8,7 @@ public class ConnectionManager {
 	Statement st = null;
 	ResultSet rs = null;
 
-	public static final String url = "jdbc:postgresql://localhost/DBS";
+	public static final String url = "jdbc:postgresql://localhost/postgres";
 	public static final String user = "postgres";
 	public static final String pw = "postgres";
 	//public static final String url = "jdbc:postgresql://alcor.inf.unibz.it/ds_group9";

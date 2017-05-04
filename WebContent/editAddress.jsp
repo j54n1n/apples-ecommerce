@@ -39,7 +39,7 @@
     
     <%
     int addressId = Integer.parseInt((String) pageContext.getAttribute("addressId"));
-	db.Address address = db.Address.find(addressId);
+	//db.Address address = db.Address.find(addressId);
     %>
     
  	<c:choose>

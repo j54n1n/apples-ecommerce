@@ -52,7 +52,7 @@
     String zip = (String) pageContext.getAttribute("zip");
     int clientId  = Integer.parseInt(""+session.getAttribute("clientID"));
     
-	pageContext.setAttribute("resultAddress", db.Address.create(salutation,title,firstname,lastname,company,country,province,city,street,streetNo,zip,clientId));
+	//pageContext.setAttribute("resultAddress", db.Customer.Create(salutation,title,firstname,lastname,company,country,province,city,street,streetNo,zip,clientId));
 	
 	%>	
 	</c:if>
