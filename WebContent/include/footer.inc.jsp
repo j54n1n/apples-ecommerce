@@ -4,7 +4,7 @@
 
 <div class="clear"></div>
 <div id="footer">
-<a href="mailto:patrick.alber@stud-inf.unibz.it">Alber Patrick - patrick.alber@stud-inf.unibz.it</a><br />
-<a href="mailto:benjamin.groeber@stud-inf.unibz.it">Gr&ouml;ber Benjamin - benjamin.groeber@stud-inf.unibz.it</a><br />
+<a href="mailto:luca.pellegrini@stud-inf.unibz.it">Luca Pellegrini - luca.pellegrini@stud-inf.unibz.it</a><br />
+<a href="mailto:sebastiano.santini@stud-inf.unibz.it"> Sebastiano Santini - sebastiano.santini@stud-inf.unibz.it</a><br />
 <a href="mailto:julian.sanin@stud-inf.unibz.it">Sanin Julian - julian.sanin@stud-inf.unibz.it</a><br />
 </div>

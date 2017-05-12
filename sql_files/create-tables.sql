@@ -71,8 +71,6 @@ CREATE TABLE quantity_as
 );
 
 
-
-
 CREATE TABLE cart
 (
   cart_id serial NOT NULL,
@@ -84,3 +82,20 @@ CREATE TABLE cart
       REFERENCES products (product_id) MATCH SIMPLE      --accept also partial filled columns
       ON UPDATE CASCADE ON DELETE RESTRICT 
 );
+
+
+CREATE TABLE quantity_as_cart
+(
+  product_id integer NOT NULL,
+  cart_id integer NOT NULL,
+  CONSTRAINT quantity_as_pkey PRIMARY KEY (product_id, cart_id), --primary key out of foreign keys
+  CONSTRAINT cart_id_product_id_fkey FOREIGN KEY (product_id)    --this is a N-M relation
+      REFERENCES products (product_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE,                              
+  CONSTRAINT quantity_as_purchase_id_fkey FOREIGN KEY (purchase_id)  --also apply changes automatically
+      REFERENCES purchase (purchase_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE                               --delete tuples if any of the keys is deleted
+);
+
+
+

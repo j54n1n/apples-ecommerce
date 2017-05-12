@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/db/CategoryInt.java=UTF-8
+encoding//src/db/CategoryService.java=UTF-8
+encoding//src/db/CategoryServiceLocator.java=UTF-8
+encoding//src/db/CategoryServiceSoapBindingStub.java=UTF-8
+encoding//src/db/CustomerInt.java=UTF-8
+encoding//src/db/CustomerObject.java=UTF-8
+encoding//src/db/CustomerService.java=UTF-8
+encoding//src/db/CustomerServiceLocator.java=UTF-8
+encoding//src/db/CustomerServiceSoapBindingStub.java=UTF-8

@@ -42,9 +42,6 @@
 <input type="text" value="${param.email}" id="email" name="email" /><br />
 <label for="homepage">Website: </label>
 <input type="text" value="${param.homepage}" id="homepage" name="homepage" />
-<input type="hidden" value="EN" name="lang" />
-<input type="hidden" value="213986986" name="customerID" /><!-- generate it random - only numbers-->
-<input type="hidden" value="1" name="customerGroupID" />
 <input type="submit" value="Register" name="register"/>
 </form>
 

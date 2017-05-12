@@ -1,26 +1,34 @@
+<%@page import="db.CustomerObject"%>
+<%@page import="db.CustomerIntProxy"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
- <c:set var="login" value="${param.login}"/>
- <c:set var="password" value="${param.password}"/>
- <c:set var="email" value="${param.email}"/>
- <c:set var="homepage" value="${param.homepage}"/>
- <c:set var="lang" value="${param.lang}"/>
- <c:set var="customerID" value="${param.customerID}"/>
- <c:set var="customerGroupID" value="${param.customerGroupID}"/>
-
-<c:choose>
- <c:when test="${empty param.register}">	
-  
-  <jsp:forward page="register.jsp" ></jsp:forward>
- 	  
- </c:when>
- <c:otherwise>  
 
    <%
+   out.println("CIAOOOO");
+   String name = request.getParameter("name");
+   String salutation = request.getParameter("salutation");
+   String sname = request.getParameter("sname");
+   String street = request.getParameter("street");
+   String province = request.getParameter("province");
+   String zip = request.getParameter("zip");
+   String uname = request.getParameter("uname");
+   String country = request.getParameter("country");
+   String psw = request.getParameter("country");
+   String email = request.getParameter("uname");
+   String city = request.getParameter("city");
+  
    
-   db.Client newClient = new db.Client();
+   CustomerIntProxy cip = new CustomerIntProxy();
+   CustomerObject ct = cip.create(salutation, name, sname, country, province, city, street, "", zip, 0, email, "");
+    
+   if(ct != null )
+	   	pageContext.setAttribute("result", true);
+	   else 
+		pageContext.setAttribute("result", false);
+   
+  /* db.Client newClient = new db.Client();
    String login = (String) pageContext.getAttribute("login");
    String password = (String) pageContext.getAttribute("password");
    String email = (String) pageContext.getAttribute("email");
@@ -33,13 +41,7 @@
    if(newClient != null )
    	pageContext.setAttribute("result", true);
    else 
-	pageContext.setAttribute("result", false);
+	pageContext.setAttribute("result", false);*/
   %>
  
- <jsp:forward page="register.jsp"> 
- <jsp:param name="success" value="${result}"/>
- </jsp:forward>
-    
   
- </c:otherwise>
-</c:choose>
