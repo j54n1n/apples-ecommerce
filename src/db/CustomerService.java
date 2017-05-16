@@ -10,7 +10,7 @@ package db;
 public interface CustomerService extends javax.xml.rpc.Service {
     public java.lang.String getCustomerPortAddress();
 
-    public db.CustomerInt getCustomerPort() throws javax.xml.rpc.ServiceException;
+    public interfaces.CustomerInt getCustomerPort() throws javax.xml.rpc.ServiceException;
 
-    public db.CustomerInt getCustomerPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+    public interfaces.CustomerInt getCustomerPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
 }

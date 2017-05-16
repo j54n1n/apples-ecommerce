@@ -10,7 +10,7 @@ package db;
 public interface CategoryService extends javax.xml.rpc.Service {
     public java.lang.String getCategoryPortAddress();
 
-    public db.CategoryInt getCategoryPort() throws javax.xml.rpc.ServiceException;
+    public interfaces.CategoryInt getCategoryPort() throws javax.xml.rpc.ServiceException;
 
-    public db.CategoryInt getCategoryPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+    public interfaces.CategoryInt getCategoryPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
 }

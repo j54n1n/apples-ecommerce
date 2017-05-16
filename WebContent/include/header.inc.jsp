@@ -1,5 +1,5 @@
-<%@page import="db.CustomerIntProxy"%>
-<%@page import="db.CustomerObject"%>
+<%@page import="interfaces.CustomerIntProxy"%>
+<%@page import="interfaces.CustomerObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -37,9 +37,9 @@
 
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up!</a></li>
   <div id="id02" class="modal">
-   <form class="modal-content animate" action="/doRegistration.jsp">
+   <form class="modal-content animate" action="/apples-ecommerce-0.0.1-SNAPSHOT/doRegistration.jsp">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Suedtirolerapfel.svg/1200px-Suedtirolerapfel.svg.png" alt="Avatar" class="avatar">
     </div>
     <div class="container">
@@ -78,39 +78,4 @@
 </div>
 </ul>
 </div>
-
- <!--  
-  <strong>Search:</strong><br />
-  <form action="search.jsp" method="POST">
-   <input type="text" name="key" value="" style="width: 614px; "/>
-   <input type="submit" name="search" value="Search" />
-  </form>
-
-  <c:choose>
-   <c:when test="${sessionScope.loggedIn == true}">	
-    
-    <a href="usercenter.jsp">My account</a><br />
-    <a href="createAuction.jsp">create Auction</a><br />
-    <a href="createAddress.jsp">create Address</a><br />
-    <a href="allAuctions.jsp">My Auctions</a><br />
-    <a href="logout.jsp">logout</a>
- 	
-   </c:when>
-   <c:otherwise>
-   <table>
-   <tr><td>
-    <strong>Login:</strong><br />
- 	<form action="login.jsp" method="POST"></form>
- 
-	 <input type="text" name="login" value="email" style="width: 371px; "/><input type="submit" name="search" value="Login" style="width: 158px; ">
-	 <input type="password" name="password" value="password" style="width: 371px; "><input type="submit" name="search" value="Sign up" style="width: 158px; ">
-	 </form></td></tr>
-	 <tr><td>
-	 </td></tr>
-	 </td>
- 	</table>
-   </c:otherwise>
-  </c:choose>		
- </div>
- -->
 <div class="clear"></div>

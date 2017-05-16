@@ -39,7 +39,7 @@ public class CategoryServiceLocator extends org.apache.axis.client.Service imple
         CategoryPortWSDDServiceName = name;
     }
 
-    public db.CategoryInt getCategoryPort() throws javax.xml.rpc.ServiceException {
+    public interfaces.CategoryInt getCategoryPort() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
             endpoint = new java.net.URL(CategoryPort_address);
@@ -50,7 +50,7 @@ public class CategoryServiceLocator extends org.apache.axis.client.Service imple
         return getCategoryPort(endpoint);
     }
 
-    public db.CategoryInt getCategoryPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public interfaces.CategoryInt getCategoryPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
             db.CategoryServiceSoapBindingStub _stub = new db.CategoryServiceSoapBindingStub(portAddress, this);
             _stub.setPortName(getCategoryPortWSDDServiceName());
@@ -72,7 +72,7 @@ public class CategoryServiceLocator extends org.apache.axis.client.Service imple
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (db.CategoryInt.class.isAssignableFrom(serviceEndpointInterface)) {
+            if (interfaces.CategoryInt.class.isAssignableFrom(serviceEndpointInterface)) {
                 db.CategoryServiceSoapBindingStub _stub = new db.CategoryServiceSoapBindingStub(new java.net.URL(CategoryPort_address), this);
                 _stub.setPortName(getCategoryPortWSDDServiceName());
                 return _stub;

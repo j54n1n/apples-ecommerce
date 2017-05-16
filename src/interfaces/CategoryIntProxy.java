@@ -1,8 +1,8 @@
-package db;
+package interfaces;
 
-public class CategoryIntProxy implements db.CategoryInt {
+public class CategoryIntProxy implements interfaces.CategoryInt {
   private String _endpoint = null;
-  private db.CategoryInt categoryInt = null;
+  private interfaces.CategoryInt categoryInt = null;
   
   public CategoryIntProxy() {
     _initCategoryIntProxy();
@@ -38,7 +38,7 @@ public class CategoryIntProxy implements db.CategoryInt {
     
   }
   
-  public db.CategoryInt getCategoryInt() {
+  public interfaces.CategoryInt getCategoryInt() {
     if (categoryInt == null)
       _initCategoryIntProxy();
     return categoryInt;

@@ -1,7 +1,7 @@
 <%@page import="net.webservicex.www.GeoIPServiceSoapProxy"%>
 <%@page import="interfaces.LoginServiceIntProxy"%>
-<%@page import="interfaces.CustomerObject"%>
-<%@page import="interfaces.CustomerIntProxy"%>
+<%@page import="db.CustomerObject"%>
+<%@page import="db.CustomerIntProxy"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -15,20 +15,12 @@
       response.addCookie(c);
     }*/
    
-   String name = request.getParameter("name");
-   String salutation = request.getParameter("salutation");
-   String sname = request.getParameter("sname");
-   String street = request.getParameter("street");
-   String province = request.getParameter("province");
-   String zip = request.getParameter("zip");
-   String uname = request.getParameter("uname");
-   String country = request.getParameter("country");
-   String psw = request.getParameter("country");
    String email = request.getParameter("uname");
-   String city = request.getParameter("city");
    String pwd = request.getParameter("psw");
-   
    LoginServiceIntProxy lsi = new LoginServiceIntProxy();
+  
+   
+   
    boolean ct = lsi.createNewUser(salutation, name, sname, country, province, city, street, "", zip, 0, email, pwd);
    if (ct) {
 	   

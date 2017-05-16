@@ -7,7 +7,7 @@
 
 package db;
 
-public class CategoryServiceSoapBindingStub extends org.apache.axis.client.Stub implements db.CategoryInt {
+public class CategoryServiceSoapBindingStub extends org.apache.axis.client.Stub implements interfaces.CategoryInt {
     private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
@@ -97,7 +97,7 @@ public class CategoryServiceSoapBindingStub extends org.apache.axis.client.Stub 
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://db/", "getCategories"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://interfaces/", "getCategories"));
 
         setRequestHeaders(_call);
         setAttachments(_call);

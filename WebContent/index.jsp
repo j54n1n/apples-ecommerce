@@ -40,8 +40,33 @@
  <br><p style="height: 249px; ">         </p></br
  <br><p style="height: 249px; ">         </p></br>
  
+
+<div id="id05" class="modal">
+   <form class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label><b><%out.print(request.getParameter("message")); %></b></label>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id05').style.display='none'" class="cancelbtn">Close</button>
+    </div>
+  </form>
+</div>
+
+
+ <c:if test="${not empty param.message}" >
+	<script>
+    document.getElementById('id05').style.display='block'
+	</script>  
+ </c:if>
+
+ 
+ 
+
 <c:import url="include/footer.inc.jsp"/>
 
-</div>
 </body>
 </html>

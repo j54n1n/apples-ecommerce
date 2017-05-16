@@ -1,59 +1,59 @@
 /**
- * CustomerServiceLocator.java
+ * GeoIPServiceLocator.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package db;
+package net.webservicex.www;
 
-public class CustomerServiceLocator extends org.apache.axis.client.Service implements db.CustomerService {
+public class GeoIPServiceLocator extends org.apache.axis.client.Service implements net.webservicex.www.GeoIPService {
 
-    public CustomerServiceLocator() {
+    public GeoIPServiceLocator() {
     }
 
 
-    public CustomerServiceLocator(org.apache.axis.EngineConfiguration config) {
+    public GeoIPServiceLocator(org.apache.axis.EngineConfiguration config) {
         super(config);
     }
 
-    public CustomerServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
+    public GeoIPServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
         super(wsdlLoc, sName);
     }
 
-    // Use to get a proxy class for CustomerPort
-    private java.lang.String CustomerPort_address = "http://54.202.224.165:8080/apples-ecommerce-ws/Customer";
+    // Use to get a proxy class for GeoIPServiceSoap
+    private java.lang.String GeoIPServiceSoap_address = "http://www.webservicex.net/geoipservice.asmx";
 
-    public java.lang.String getCustomerPortAddress() {
-        return CustomerPort_address;
+    public java.lang.String getGeoIPServiceSoapAddress() {
+        return GeoIPServiceSoap_address;
     }
 
     // The WSDD service name defaults to the port name.
-    private java.lang.String CustomerPortWSDDServiceName = "CustomerPort";
+    private java.lang.String GeoIPServiceSoapWSDDServiceName = "GeoIPServiceSoap";
 
-    public java.lang.String getCustomerPortWSDDServiceName() {
-        return CustomerPortWSDDServiceName;
+    public java.lang.String getGeoIPServiceSoapWSDDServiceName() {
+        return GeoIPServiceSoapWSDDServiceName;
     }
 
-    public void setCustomerPortWSDDServiceName(java.lang.String name) {
-        CustomerPortWSDDServiceName = name;
+    public void setGeoIPServiceSoapWSDDServiceName(java.lang.String name) {
+        GeoIPServiceSoapWSDDServiceName = name;
     }
 
-    public interfaces.CustomerInt getCustomerPort() throws javax.xml.rpc.ServiceException {
+    public net.webservicex.www.GeoIPServiceSoap getGeoIPServiceSoap() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(CustomerPort_address);
+            endpoint = new java.net.URL(GeoIPServiceSoap_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
         }
-        return getCustomerPort(endpoint);
+        return getGeoIPServiceSoap(endpoint);
     }
 
-    public interfaces.CustomerInt getCustomerPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public net.webservicex.www.GeoIPServiceSoap getGeoIPServiceSoap(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            db.CustomerServiceSoapBindingStub _stub = new db.CustomerServiceSoapBindingStub(portAddress, this);
-            _stub.setPortName(getCustomerPortWSDDServiceName());
+            net.webservicex.www.GeoIPServiceSoapStub _stub = new net.webservicex.www.GeoIPServiceSoapStub(portAddress, this);
+            _stub.setPortName(getGeoIPServiceSoapWSDDServiceName());
             return _stub;
         }
         catch (org.apache.axis.AxisFault e) {
@@ -61,8 +61,8 @@ public class CustomerServiceLocator extends org.apache.axis.client.Service imple
         }
     }
 
-    public void setCustomerPortEndpointAddress(java.lang.String address) {
-        CustomerPort_address = address;
+    public void setGeoIPServiceSoapEndpointAddress(java.lang.String address) {
+        GeoIPServiceSoap_address = address;
     }
 
     /**
@@ -72,9 +72,9 @@ public class CustomerServiceLocator extends org.apache.axis.client.Service imple
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (interfaces.CustomerInt.class.isAssignableFrom(serviceEndpointInterface)) {
-                db.CustomerServiceSoapBindingStub _stub = new db.CustomerServiceSoapBindingStub(new java.net.URL(CustomerPort_address), this);
-                _stub.setPortName(getCustomerPortWSDDServiceName());
+            if (net.webservicex.www.GeoIPServiceSoap.class.isAssignableFrom(serviceEndpointInterface)) {
+                net.webservicex.www.GeoIPServiceSoapStub _stub = new net.webservicex.www.GeoIPServiceSoapStub(new java.net.URL(GeoIPServiceSoap_address), this);
+                _stub.setPortName(getGeoIPServiceSoapWSDDServiceName());
                 return _stub;
             }
         }
@@ -94,8 +94,8 @@ public class CustomerServiceLocator extends org.apache.axis.client.Service imple
             return getPort(serviceEndpointInterface);
         }
         java.lang.String inputPortName = portName.getLocalPart();
-        if ("CustomerPort".equals(inputPortName)) {
-            return getCustomerPort();
+        if ("GeoIPServiceSoap".equals(inputPortName)) {
+            return getGeoIPServiceSoap();
         }
         else  {
             java.rmi.Remote _stub = getPort(serviceEndpointInterface);
@@ -105,7 +105,7 @@ public class CustomerServiceLocator extends org.apache.axis.client.Service imple
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://db/", "CustomerService");
+        return new javax.xml.namespace.QName("http://www.webservicex.net/", "GeoIPService");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +113,7 @@ public class CustomerServiceLocator extends org.apache.axis.client.Service imple
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://db/", "CustomerPort"));
+            ports.add(new javax.xml.namespace.QName("http://www.webservicex.net/", "GeoIPServiceSoap"));
         }
         return ports.iterator();
     }
@@ -123,8 +123,8 @@ public class CustomerServiceLocator extends org.apache.axis.client.Service imple
     */
     public void setEndpointAddress(java.lang.String portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
         
-if ("CustomerPort".equals(portName)) {
-            setCustomerPortEndpointAddress(address);
+if ("GeoIPServiceSoap".equals(portName)) {
+            setGeoIPServiceSoapEndpointAddress(address);
         }
         else 
 { // Unknown Port Name
