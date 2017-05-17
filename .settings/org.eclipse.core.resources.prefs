@@ -12,6 +12,7 @@ encoding//src/interfaces/CategoryInt.java=UTF-8
 encoding//src/interfaces/CustomerInt.java=UTF-8
 encoding//src/interfaces/CustomerObject.java=UTF-8
 encoding//src/interfaces/LoginServiceInt.java=UTF-8
+encoding//src/interfaces/SQLException.java=UTF-8
 encoding//src/net/webservicex/www/GeoIP.java=UTF-8
 encoding//src/net/webservicex/www/GeoIPService.java=UTF-8
 encoding//src/net/webservicex/www/GeoIPServiceLocator.java=UTF-8
