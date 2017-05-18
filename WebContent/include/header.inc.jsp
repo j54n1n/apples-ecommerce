@@ -1,10 +1,11 @@
+<%@page import="interfaces.CustomerInt"%>
 <%@page import="interfaces.CustomerIntProxy"%>
 <%@page import="interfaces.CustomerObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<div id="logo"" style="width: 245px; height: 118px; "><img src="https://preview.ibb.co/geOCLk/18555206_10155315010508236_977846558_n.png" style="height: 105px; width="200" height="40" "/></div>
+<div id="logo"" style="width: 100px; height: 118px; "><img src="https://preview.ibb.co/geOCLk/18555206_10155315010508236_977846558_n.png" style="height: 105px; width="200" height="40" "/></div>
 <% 
 
 Cookie[] cookies = request.getCookies();
@@ -96,7 +97,8 @@ if (!attribute && myCookie == null){ %>
 </div>
 </ul>
 </div>
-<%} else if ((boolean)session.getAttribute("logged")){ %>
+<%} 
+else if (attribute){ %>
 <div id="top"><ul>
   <% 
   int id = (int)session.getAttribute("customer_id");
@@ -106,16 +108,16 @@ if (!attribute && myCookie == null){ %>
   <li><a href="#home">Profile</a></li>
   <li><a href="#news">Your Orders</a></li>
   <li><a href="#contact">Your Chart</a></li>
-  <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><b>Logged as <% out.print(id); %></b></a></li>
+  
+  <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><b>Logged as <% co.getEmail(); %></b></a></li>
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logout</a></li>
 </ul>
 </div>
-<%} 
-else{
-	%> 
-	 response.sendRedirect(String.format("%s%s", request.getContextPath(), "/doLoginCookie?token="<%myCookie.getValue(); %>));
-	<%	
+<%
+} 
+else{%>
+<meta http-equiv="refresh" content="0;url=doLoginCookie.jsp?token="<%out.print(myCookie.getValue()); %>>
+<% 
 }
-	
 %>
 <div class="clear"></div>

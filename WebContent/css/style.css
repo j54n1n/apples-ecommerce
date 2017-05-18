@@ -152,13 +152,12 @@ div.clear
 #logo
 {
 	float:left;
-	width:213px;
-	height:130px;
+	height:30px;
 }
 
 #top {
     float:right;    
-    width:750px;
+    width: 850px;
 }
 
 
