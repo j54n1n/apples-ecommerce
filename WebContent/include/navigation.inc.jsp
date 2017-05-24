@@ -11,6 +11,8 @@
  	  </li>  
     </ul>
  <%
+ System.setProperty("javax.net.ssl.trustStore", "jssecacerts");
+ System.setProperty("javax.net.ssl.trustStorePassword", "Aa30011992");
  for (String category : categories){
  	%>
  	<ul>

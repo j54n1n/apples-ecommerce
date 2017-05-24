@@ -1,4 +1,4 @@
-<%@page import="net.webservicex.www.GeoIPServiceSoapProxy"%>
+<%@page import="helpers.KeyHelper"%>
 <%@page import="interfaces.LoginServiceIntProxy"%>
 <%@page import="interfaces.CustomerObject"%>
 <%@page import="interfaces.CustomerIntProxy"%>
@@ -29,6 +29,11 @@
    String pwd = request.getParameter("psw");
    
    LoginServiceIntProxy lsi = new LoginServiceIntProxy();
+   String publicK = lsi.getPublicKey();
+   KeyHelper kh = new KeyHelper(publicK);
+   pwd = kh.encryptString(pwd);
+   
+   
    boolean ct = lsi.createNewUser(salutation, name, sname, country, province, city, street, "", zip, 0, email, pwd);
    if (ct) {
 	   int id = lsi.login(email, pwd);
