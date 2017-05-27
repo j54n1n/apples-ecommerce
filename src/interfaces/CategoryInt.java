@@ -8,5 +8,6 @@
 package interfaces;
 
 public interface CategoryInt extends java.rmi.Remote {
+    public interfaces.ProductObject[] getProducts(int arg0) throws java.rmi.RemoteException;
     public java.lang.String[] getCategories() throws java.rmi.RemoteException;
 }

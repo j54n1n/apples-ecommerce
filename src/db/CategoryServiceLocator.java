@@ -22,7 +22,7 @@ public class CategoryServiceLocator extends org.apache.axis.client.Service imple
     }
 
     // Use to get a proxy class for CategoryPort
-    private java.lang.String CategoryPort_address = "https://54.202.224.165:8443/apples-ecommerce-ws/Category";
+    private java.lang.String CategoryPort_address = "http://localhost:8080/apples-ecommerce-ws/Category";
 
     public java.lang.String getCategoryPortAddress() {
         return CategoryPort_address;

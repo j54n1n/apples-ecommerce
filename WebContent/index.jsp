@@ -9,7 +9,7 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 
-<title>Auction South Tyrol</title>
+<title>Apples e-commerce South Tyrol</title>
 </head>
 <body>
 <div id="page">

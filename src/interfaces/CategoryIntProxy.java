@@ -44,6 +44,12 @@ public class CategoryIntProxy implements interfaces.CategoryInt {
     return categoryInt;
   }
   
+  public interfaces.ProductObject[] getProducts(int arg0) throws java.rmi.RemoteException{
+    if (categoryInt == null)
+      _initCategoryIntProxy();
+    return categoryInt.getProducts(arg0);
+  }
+  
   public java.lang.String[] getCategories() throws java.rmi.RemoteException{
     if (categoryInt == null)
       _initCategoryIntProxy();
