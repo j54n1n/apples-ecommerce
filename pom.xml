@@ -44,6 +44,7 @@
        
   </dependencies>
   <build>
+    <finalName>apples-ecommerce</finalName>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
