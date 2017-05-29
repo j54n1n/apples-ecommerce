@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<div id="logo"" style="width: 100px; height: 118px; "><img src="https://preview.ibb.co/geOCLk/18555206_10155315010508236_977846558_n.png" style="height: 105px; width="200" height="40" "/></div>
+<div id="logo" style="width: 100px; height: 118px; "><img src="https://preview.ibb.co/geOCLk/18555206_10155315010508236_977846558_n.png" style="height: 105px; width="200" height="40" "/></div>
 <% 
 
 Cookie[] cookies = request.getCookies();
@@ -31,7 +31,7 @@ if (!attribute && myCookie == null){ %>
   <li><a href="#contact">Contact</a></li>
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
   <div id="id01" class="modal">
-   <form class="modal-content animate" action="/apples-ecommerce-0.0.1-SNAPSHOT/doLogin.jsp">
+   <form class="modal-content animate" action="/apples-ecommerce/doLogin.jsp">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Suedtirolerapfel.svg/1200px-Suedtirolerapfel.svg.png" alt="Avatar" class="avatar">
@@ -56,7 +56,7 @@ if (!attribute && myCookie == null){ %>
 
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up!</a></li>
   <div id="id02" class="modal">
-   <form class="modal-content animate" action="/apples-ecommerce-0.0.1-SNAPSHOT/doRegistration.jsp">
+   <form class="modal-content animate" action="/apples-ecommerce/doRegistration.jsp">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Suedtirolerapfel.svg/1200px-Suedtirolerapfel.svg.png" alt="Avatar" class="avatar">

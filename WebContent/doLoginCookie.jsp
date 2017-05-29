@@ -1,4 +1,5 @@
-<%@page import="net.webservicex.www.GeoIPServiceSoapProxy"%>
+
+
 <%@page import="interfaces.LoginServiceIntProxy"%>
 <%@page import="interfaces.CustomerObject"%>
 <%@page import="interfaces.CustomerIntProxy"%>

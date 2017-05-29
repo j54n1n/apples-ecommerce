@@ -23,12 +23,13 @@ public class KeyHelper {
 	}
 	
 	public String encryptString(String toEncrpy){
+		byte[] pBytes = Base64.decode(publicKey);
 		String result = "";
-		byte[] byteKey = Base64.decode(toEncrpy);
-	    X509EncodedKeySpec X509publicKey = new X509EncodedKeySpec(byteKey);
+	    X509EncodedKeySpec X509publicKey = new X509EncodedKeySpec(pBytes);
+
 	    try {
 			KeyFactory kf = KeyFactory.getInstance("RSA");
-			PublicKey pKey = kf.generatePublic(X509publicKey);
+		    PublicKey pKey = kf.generatePublic(X509publicKey);
 		    Cipher cipher = Cipher.getInstance("RSA");   
 		    cipher.init(Cipher.ENCRYPT_MODE, pKey);  
 		    result =  Base64.encode(cipher.doFinal(toEncrpy.getBytes()));

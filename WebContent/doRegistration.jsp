@@ -37,13 +37,13 @@
    boolean ct = lsi.createNewUser(salutation, name, sname, country, province, city, street, "", zip, 0, email, pwd);
    if (ct) {
 	   int id = lsi.login(email, pwd);
-       String token = lsi.getCookieToken();
+       /*String token = lsi.getCookieToken();
 	   Cookie cToken = new Cookie("token", token);
 	   cToken.setMaxAge(60*60*30);
 	   response.addCookie(cToken);
 	   lsi.insertNewToken(id, token);
        session.setAttribute("customer_id", id);
-       session.setAttribute("logged", true);
+       session.setAttribute("logged", true);*/
 	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Registration succesfully"));
    	   		
    }
