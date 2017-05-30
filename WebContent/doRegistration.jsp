@@ -24,7 +24,7 @@
    String uname = request.getParameter("uname");
    String country = request.getParameter("country");
    String psw = request.getParameter("country");
-   String email = request.getParameter("uname");
+   String email = request.getParameter("email");
    String city = request.getParameter("city");
    String pwd = request.getParameter("psw");
    
@@ -41,9 +41,9 @@
 	   Cookie cToken = new Cookie("token", token);
 	   cToken.setMaxAge(60*60*30);
 	   response.addCookie(cToken);
-	   lsi.insertNewToken(id, token);
-       session.setAttribute("customer_id", id);
-       session.setAttribute("logged", true);*/
+	   lsi.insertNewToken(id, token);*/
+       session.setAttribute("email", email);
+       session.setAttribute("logged", true);
 	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Registration succesfully"));
    	   		
    }

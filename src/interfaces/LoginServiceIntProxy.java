@@ -104,5 +104,11 @@ public class LoginServiceIntProxy implements interfaces.LoginServiceInt {
     return loginServiceInt.getCustomerIdFromToken(arg0);
   }
   
+  public java.lang.String getPublicKeyFromEmail(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (loginServiceInt == null)
+      _initLoginServiceIntProxy();
+    return loginServiceInt.getPublicKeyFromEmail(arg0);
+  }
+  
   
 }

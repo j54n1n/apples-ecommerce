@@ -83,7 +83,7 @@ if (!attribute && myCookie == null){ %>
       <label><b>Country</b></label>
       <input type="text" placeholder="Enter Country" name="country" required>
       <label><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="uname" required>
+      <input type="text" placeholder="Enter Email" name="email" required>
       <label><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
       <label><b>Repeat Password</b></label>
@@ -101,15 +101,13 @@ if (!attribute && myCookie == null){ %>
 else if (attribute){ %>
 <div id="top"><ul>
   <% 
-  int id = (int)session.getAttribute("customer_id");
-  CustomerObject co = new CustomerIntProxy().find(id);
- 
+  String email = (String)session.getAttribute("email");
   %>
   <li><a href="#home">Profile</a></li>
   <li><a href="#news">Your Orders</a></li>
   <li><a href="#contact">Your Chart</a></li>
   
-  <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><b>Logged as <% co.getEmail(); %></b></a></li>
+  <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><b>Logged as <% out.println(email); %></b></a></li>
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logout</a></li>
 </ul>
 </div>

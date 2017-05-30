@@ -32,7 +32,7 @@ public class KeyHelper {
 		    PublicKey pKey = kf.generatePublic(X509publicKey);
 		    Cipher cipher = Cipher.getInstance("RSA");   
 		    cipher.init(Cipher.ENCRYPT_MODE, pKey);  
-		    result =  Base64.encode(cipher.doFinal(toEncrpy.getBytes()));
+		    result =  Base64.encode(cipher.doFinal(Base64.decode(toEncrpy)));
 			
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
