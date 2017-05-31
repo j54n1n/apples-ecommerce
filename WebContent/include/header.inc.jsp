@@ -108,7 +108,7 @@ else if (attribute){ %>
   <li><a href="#contact">Your Chart</a></li>
   
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><b>Logged as <% out.println(email); %></b></a></li>
-  <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logout</a></li>
+  <li style="float:right"><a class="active" href="<% out.print(request.getContextPath() + "/doLogout.jsp"); %>" style="width:auto;">Logout</a></li>
 </ul>
 </div>
 <%
