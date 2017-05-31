@@ -22,7 +22,7 @@ public class LoginServiceServiceLocator extends org.apache.axis.client.Service i
     }
 
     // Use to get a proxy class for LoginServicePort
-    private java.lang.String LoginServicePort_address = "http://127.0.0.1:8080/apples-ecommerce-ws/LoginService";
+    private java.lang.String LoginServicePort_address = "http://localhost:8080/apples-ecommerce-ws/LoginService";
 
     public java.lang.String getLoginServicePortAddress() {
         return LoginServicePort_address;

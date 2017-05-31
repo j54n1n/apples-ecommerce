@@ -21,15 +21,15 @@
    else{
 	   String token = lsi.getCookieToken();
 	   Cookie cookie = new Cookie("token", token);
-	   cookie.setMaxAge(60 * 60 * 30);
+	   cookie.setMaxAge(3600 * 24* 30);
 	   cookie.setPath("/");
-	   //response.addCookie(cookie);
-	   //lsi.insertNewToken(result, token);
+	   lsi.insertNewToken(result, token);
        session.setAttribute("customer_id", result);
        CustomerIntProxy cip = new CustomerIntProxy();
        session.setAttribute("logged", true);
        session.setAttribute("email",cip.find(result).getEmail());
-	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=You logged in succesfully"));
+	   response.addCookie(cookie);
+       response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=You logged in succesfully"));
    }
      
   %>

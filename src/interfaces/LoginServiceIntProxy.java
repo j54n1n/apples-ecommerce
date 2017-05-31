@@ -62,12 +62,6 @@ public class LoginServiceIntProxy implements interfaces.LoginServiceInt {
     return loginServiceInt.insertNewToken(arg0, arg1);
   }
   
-  public java.lang.String getCookieToken() throws java.rmi.RemoteException, interfaces.SQLException{
-    if (loginServiceInt == null)
-      _initLoginServiceIntProxy();
-    return loginServiceInt.getCookieToken();
-  }
-  
   public java.lang.String getPublicKey() throws java.rmi.RemoteException{
     if (loginServiceInt == null)
       _initLoginServiceIntProxy();
@@ -86,6 +80,24 @@ public class LoginServiceIntProxy implements interfaces.LoginServiceInt {
     return loginServiceInt.updateToken(arg0, arg1);
   }
   
+  public java.lang.String getPublicKeyFromEmail(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (loginServiceInt == null)
+      _initLoginServiceIntProxy();
+    return loginServiceInt.getPublicKeyFromEmail(arg0);
+  }
+  
+  public java.lang.String getCookieToken() throws java.rmi.RemoteException, interfaces.SQLException{
+    if (loginServiceInt == null)
+      _initLoginServiceIntProxy();
+    return loginServiceInt.getCookieToken();
+  }
+  
+  public boolean logout(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (loginServiceInt == null)
+      _initLoginServiceIntProxy();
+    return loginServiceInt.logout(arg0);
+  }
+  
   public java.lang.String updateCookieToken(int arg0) throws java.rmi.RemoteException, interfaces.SQLException{
     if (loginServiceInt == null)
       _initLoginServiceIntProxy();
@@ -102,12 +114,6 @@ public class LoginServiceIntProxy implements interfaces.LoginServiceInt {
     if (loginServiceInt == null)
       _initLoginServiceIntProxy();
     return loginServiceInt.getCustomerIdFromToken(arg0);
-  }
-  
-  public java.lang.String getPublicKeyFromEmail(java.lang.String arg0) throws java.rmi.RemoteException{
-    if (loginServiceInt == null)
-      _initLoginServiceIntProxy();
-    return loginServiceInt.getPublicKeyFromEmail(arg0);
   }
   
   
