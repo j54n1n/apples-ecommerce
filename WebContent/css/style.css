@@ -192,10 +192,9 @@ div.clear
 {
 	marign:15px 0 0 0;
 	width:180px;
-	height: 100%;
+	height: 10000px;
 	padding:5px;
 	float:left;
-	border:solid;
 }
 
 #nav ul
@@ -204,7 +203,7 @@ div.clear
     margin: 0;
     padding: 0;
     width: 200px;
-    height: 100000000px;
+  
     background-color: #f1f1f1;
     border: 1px solid #555;
 }
@@ -217,7 +216,7 @@ div.clear
 }
 #nav li:last-child
 {
-      height: 100000000px;
+      
 }
 #nav li a.active
 {
@@ -385,17 +384,6 @@ span.psw {
     }
 }
 
-@font-face {
-	font-family: 'pgicons';
-	src:url('../fonts/pgicons/pgicons.eot');
-	src:url('../fonts/pgicons/pgicons.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/pgicons/pgicons.woff') format('woff'),
-		url('../fonts/pgicons/pgicons.ttf') format('truetype'),
-		url('../fonts/pgicons/pgicons.svg#pgicons') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
 .cbp-pgcontainer {
 	position: relative;
 	width: 100%;
@@ -445,41 +433,12 @@ span.psw {
 }
 
 .cbp-pgcontent {
-	border: 3px solid #47a3da;
+	border: 3px solid #4CAF50;
 	position: relative;
 }
 
-.cbp-pgrotate {
-	width: 36px;
-	height: 36px;
-	position: absolute;
-	display: block;
-	color: transparent;
-	font-size: 0;
-	z-index: 100;
-	border-bottom: 3px solid #47a3da;
-	border-left: 3px solid #47a3da;
-	right: 0px;
-	top: 0px;
-	cursor: pointer;
-	text-align: center;
-}
 
-.cbp-pgrotate:before {
-	font-size: 18px;
-	line-height: 32px;
-	color: #47a3da;
-}
 
-.no-touch .cbp-pgrotate:hover,
-.cbp-pgrotate.cbp-pgrotate-active {
-	background: #47a3da;
-}
-
-.no-touch .cbp-pgrotate:hover:before,
-.cbp-pgrotate.cbp-pgrotate-active:before {
-	color: #fff;
-}
 
 /* The item with the images will have perspective */
 .cbp-pgitem {
@@ -492,6 +451,7 @@ span.psw {
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
+	border-down: 3px solid #4CAF50;
 }
 
 /* The flip container */
@@ -502,18 +462,13 @@ span.psw {
 	-webkit-transition: -webkit-transform .4s ease-out;
 	-moz-transition: -moz-transform .4s ease-out;
 	transition: transform .4s ease-out;
+	 	border-down: 3px solid #4CAF50;
 	
 }
 
 /* If you want to rotate on hover instead of click, you could use something like this: 
 .cbp-pgrotate:hover + .cbp-pgitem .cbp-pgitem-flip
 */
-.cbp-pgitem.cbp-pgitem-showback .cbp-pgitem-flip {
-	-webkit-transform: rotateY(180deg);
-	-moz-transform: rotateY(180deg);
-	transform: rotateY(180deg);
-}
-
 .cbp-pgitem-flip img {
 	display: block;
 	margin: 0 auto;
@@ -522,6 +477,7 @@ span.psw {
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
+	 	border-down: 3px solid #4CAF50;
 }
 
 .cbp-pgitem img:first-child {
@@ -538,58 +494,55 @@ span.psw {
 	transform: translateX(-50%) translateY(-50%) rotateY(-180deg);
 }
 
-/* Fallback for browsers that don't support 3d transforms */
-.no-csstransforms3d .cbp-pgitem img:nth-child(2) {
-	position: relative;
-	top: 0;
-	left: 0;
-	display: none;
-}
 
-.no-csstransforms3d .cbp-pgitem.cbp-pgitem-showback img:first-child {
-	display: none;
-}
-
-.no-csstransforms3d .cbp-pgitem.cbp-pgitem-showback img:nth-child(2) {
-	display: block;
-}
 
 /* The options bar */
 .cbp-pgoptions {
-	height: 60px;
+	height: 80px;
 	width: 100%;
- 	border-top: 3px solid #47a3da;;
+ 	border-top: 3px solid #4CAF50;
+    border-down: 3px solid #4CAF50;
 }
 
+.cbp-pgoptions > li:first-child {
+	width: 80px;
+} 
+
+.cbp-pgoptions > li:last-child {
+	width: 30%;
+	border:none;
+} 
+
 .cbp-pgoptions > li {
-	width: 20%;
-	height: 100%;
+	padding-top: 10px;
+	height: 90%;
 	float: left;
+	width: 40%; 
 	position: relative;
 	display: block;
 	cursor: pointer;
 	color: transparent;
 	font-size: 0;
-	border-left: 3px solid #47a3da;
+	border-right: 3px solid #4CAF50;
 	-webkit-touch-callout: none;
-	-webkit-user-select: none;
+	-webkit-user-seLect: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 }
 
-.cbp-pgoptions > li:first-child {
-	border-left: none;
-} 
+
+
+
 
 .no-touch .cbp-pgoptions li {
-	color: #47a3da;
+	color: #4CAF50;
 }
 
 .no-touch .cbp-pgoptions li:hover,
 .cbp-pgoptions li.cbp-pgoption-active {
-	background: #47a3da;
+	background: #4CAF50;
 }
 
 .cbp-pgoptions li:before,
@@ -598,7 +551,7 @@ span.psw {
 	line-height: 60px;
 	text-indent: 0;
 	text-align: center;
-	color: #47a3da;
+	color: #4CAF50;
 }
 
 .no-touch .cbp-pgoptions li:hover:before,
@@ -621,20 +574,6 @@ span.psw {
 	height: 100%;
 }
 
-/* Icons */
-.cbp-pgoptcompare, 
-.cbp-pgoptcart, 
-.cbp-pgoptfav,
-.cbp-pgrotate {
-	font-family: 'pgicons';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-}
 
 .cbp-pgoptcompare:before {
 	content: "\e001";
@@ -649,13 +588,7 @@ span.psw {
 	color: #ee73b8;
 }
 
-.cbp-pgoptfav.cbp-pgoptfav-selected:hover:before {
-	color: #f9c0e0;
-}
 
-.cbp-pgoptcart:before {
-	content: "\e000";
-}
 
 .cbp-pgrotate:before {
 	content: "\e004";
@@ -671,14 +604,15 @@ span.psw {
 	width: 100px;
 	left: 50%;
 	margin-left: -50px;
-	border: 3px solid #47a3da;
 	opacity: 0;
 	z-index: 1000;
+	
 	visibility: hidden;
 	pointer-events: none;
 	-webkit-transition: visibility 0s 0.3s, opacity 0.3s, bottom 0.3s;
 	-moz-transition: visibility 0s 0.3s, opacity 0.3s, bottom 0.3s;
 	transition: visibility 0s 0.3s, opacity 0.3s, bottom 0.3s;
+    border: 3px solid #4CAF50
 }
 
 .cbp-pgoptions li:hover .cbp-pgopttooltip,
@@ -690,6 +624,7 @@ span.psw {
 	transition-delay: 0s;
 	bottom: 100%;
 	pointer-events: auto;
+	border: 3px solid #4CAF50
 }
 
 .cbp-pgopttooltip:after,
@@ -701,20 +636,20 @@ span.psw {
 	width: 0;
 	position: absolute;
 	pointer-events: none;
+	border: 3px solid #4CAF50
 }
 
 .cbp-pgopttooltip:after {
-	border-color: transparent;
-	border-top-color: #fff;
+	border: 3px solid #4CAF50
+
 	border-width: 10px;
 	left: 50%;
 	margin-left: -10px;
+	
 }
 
 .cbp-pgopttooltip:before {
-	border-color: transparent;
-	border-top-color: #47a3da;
-	border-width: 14px;
+    border: 3px solid #4CAF50
 	left: 50%;
 	margin-left: -14px;
 }
@@ -722,50 +657,35 @@ span.psw {
 /* Size tooltip */
 .cbp-pgoptsize .cbp-pgopttooltip {
 	margin-left: -50px;
+	border: 3px solid #4CAF50
 }
 
 .cbp-pgoptsize .cbp-pgopttooltip span {
 	display: block;
 	text-indent: 0;
-	background: url(../images/tshirt.svg) no-repeat center center;
 	background-size: 100%;
 	margin: 0 auto 4px;
 	text-align: center;
 	font-size: 12px;
 	font-weight: 700;
-	color: #65b3e2;
+	color: #4CAF50;
+	border: 3px solid #4CAF50
 }
 
 .cbp-pgoptsize .cbp-pgopttooltip span:hover {
-	color: #0968a1;
+	color: #4CAF50;
 	-webkit-transform: scale(1.1);
 	-moz-transform: scale(1.1);
 	transform: scale(1.1);
+	border: 3px solid #4CAF50
 }
 
 .cbp-pgoptsize .cbp-pgopttooltip span[data-size="XL"] {
-	width: 44px;
-	height: 44px;
+	width: 80px;
+	height: 100%;
 	line-height: 44px;
 }
 
-.cbp-pgoptsize .cbp-pgopttooltip span[data-size="L"] {
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-}
-
-.cbp-pgoptsize .cbp-pgopttooltip span[data-size="M"] {
-	width: 34px;
-	height: 34px;
-	line-height: 34px;
-}
-
-.cbp-pgoptsize .cbp-pgopttooltip span[data-size="S"] {
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-}
 
 /* Color tooltip */
 .cbp-pgoptcolor .cbp-pgopttooltip {
@@ -780,8 +700,8 @@ span.psw {
 }
 
 .cbp-pgoptions li.cbp-pgoptcolor > span {
-	width: 36px;
-	height: 36px;
+	width: 72px;
+	height: 20x;
 	border: 3px solid #fff;
 }
 
@@ -789,7 +709,7 @@ span.psw {
 	float: left;
 	margin: 4px;
 	width: 34px;
-	height: 34px;
+	height: 20px;
 }
 
 .no-touch .cbp-pgoptcolor .cbp-pgopttooltip span:hover {
@@ -798,24 +718,10 @@ span.psw {
 	transform: scale(1.1);
 }
 
-.cbp-pgoptcolor span[data-color="c1"] {
-	background: #72bbe9;
-}
-
-.cbp-pgoptcolor span[data-color="c2"] {
-	background: #e577aa;
-}
-
-.cbp-pgoptcolor span[data-color="c3"] {
-	background: #e5b178;
-}
-
-.cbp-pgoptcolor span[data-color="c4"] {
-	background: #7abe93;
-}
 
 .cbp-pginfo {
 	padding-top: 10px;
+    border-top: 3px solid #4CAF50;
 }
 
 .cbp-pginfo:before,
@@ -832,7 +738,7 @@ span.psw {
 .cbp-pginfo span {
 	float: left;
 	width: 50%;
-	font-size: 1.8em;
+	font-size: 2.2em;
 	padding: 10px 5px;
 	margin: 0;
 }

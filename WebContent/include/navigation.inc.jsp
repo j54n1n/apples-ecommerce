@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <div id="nav">
  <% 
+ int count = 1;
+ String category_id = request.getParameter("category_id");
  CategoryIntProxy cip = new CategoryIntProxy();
  String[] categories = cip.getCategories();%>
   	<ul>
@@ -14,14 +16,41 @@
  System.setProperty("javax.net.ssl.trustStore", "jssecacerts");
  System.setProperty("javax.net.ssl.trustStorePassword", "Aa30011992");
  for (String category : categories){
+ 	 if(category_id != "" && category_id != null){
+	 if (Integer.parseInt(category_id) == count){
  	%>
- 	<ul>
+ 	 	<ul>
  	  <li>
- 	  <a class="active"><%out.print(category); %></a>
+ 	  <a class="noactive"><%out.print(category); count++; %></a>
  	  </li>  
     </ul>
- 	<% 
+ 	<%} else{ %>
+ 	
+ 	<ul>
+ 	  <li>
+ 	  <a class="active"><%out.print(category); count++; %></a>
+ 	  </li>  
+    </ul>
+ 	<% }
 }
+ 	 
+ 	 else{
+ %>
+	<ul>
+ 	  <li>
+ 	  <a class="active"><%out.print(category); count++; %></a>
+ 	  </li>  
+    </ul>
+
+
+
+<% 
+ 		 
+ 		 
+ 	 }
+ 	 
+ 
+ }
 
  %>
  

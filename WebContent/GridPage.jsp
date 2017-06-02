@@ -24,47 +24,47 @@
    String category_id = request.getParameter("category_id");
    CategoryIntProxy cip = new CategoryIntProxy();
    ProductObject[] pos = cip.getProducts(Integer.parseInt(category_id));
-   for (ProductObject p : pos){
+   for (ProductObject p : pos){ 
    %>
 		<li>
 			<div class="cbp-pgcontent">
 				<div class="cbp-pgitem">
 					<div class="cbp-pgitem-flip">
-						<img src=<%out.print(p.getImgLink()); %> />
+						<img src=<%out.print(p.getImgLink());%> />
 					</div>
 				</div><!-- /cbp-pgitem -->
-				<ul class="cbp-pgoptions">
-					<li class="cbp-pgoptcompare">Compare</li>
-					<li class="cbp-pgoptfav">Favorite</li>
-					<li class="cbp-pgoptsize">								
-						<span data-size="XL">XL</span>
+				<ul class="cbp-pgoptions">							
+						<li class="cbp-pgoptsize">
+						<span id="<%out.print(p.getTitle()); %>" data-size="XL">1 kg</span>
 						<div class="cbp-pgopttooltip">
-							<span data-size="XL">XL</span>
-							<span data-size="L">L</span>
-							<span data-size="M">M</span>
-							<span data-size="S">S</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="1 kg"'>1 kg</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="2 kg"'>2 kg</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="3 kg"'>3 kg</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="4 kg"'>4 kg</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="5 kg"'>5 kg</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="6 kg"'>6 kg</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="7 kg"'>7 kg</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="8 kg"'>8 kg</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="9 kg"'>9 kg</span>
+							<span data-size='XL' onclick='document.getElementById("<%out.print(p.getTitle()); %>").innerHTML="10 kg"'>10 kg</span>
 						</div>
 					</li>
-					<li class="cbp-pgoptcolor">
-						<span data-color="c1">Blue</span>
-						<div class="cbp-pgopttooltip">
-							<span data-color="c1">Blue</span>
-							<span data-color="c2">Pink</span>
-							<span data-color="c3">Orange</span>
-							<span data-color="c4">Green</span>
-						</div>
+					<li class="cbp-pgoptsize">
+					<span id="<%out.print(p.getTitle()); %>" data-size="XL"><%out.print(p.getTitle()); %></span>
 					</li>
-					<li class="cbp-pgoptcart"></li>
+					<li class="cbp-pgoptsize">
+					 <span id="<%out.print(p.getTitle()); %>" data-size="XL"><%out.print(((double)p.getPrice())/100 + " €/kg"); %></span>
+					</li>
 				</ul><!-- cbp-pgoptions -->
-			</div><!-- cbp-pgcontent -->
-			<div class="cbp-pginfo">
-				<h3>Save my trees</h3>
-				<span class="cbp-pgprice">$29</span>
+				<div class="cbp-pginfo">
+				 	<h3><% out.print(p.getTitle());%></h3>
+					<span class="cbp-pgprice"><% out.print(p.getPrice()); %></span>
+				</div>
 			</div>
 		</li>
 
-<%}
-   
+<%
+}
    %>
    </ul>
    </div>
