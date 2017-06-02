@@ -16,19 +16,21 @@
  System.setProperty("javax.net.ssl.trustStore", "jssecacerts");
  System.setProperty("javax.net.ssl.trustStorePassword", "Aa30011992");
  for (String category : categories){
+	 String link =  String.format("%s%s", request.getContextPath(), "/GridPage.jsp?customer_id="+count);
  	 if(category_id != "" && category_id != null){
 	 if (Integer.parseInt(category_id) == count){
+
  	%>
  	 	<ul>
  	  <li>
- 	  <a class="noactive"><%out.print(category); count++; %></a>
+ 	  <a class="no" href="<% out.println(link);%>"><%out.print(category); count++; %></a>
  	  </li>  
     </ul>
  	<%} else{ %>
  	
  	<ul>
  	  <li>
- 	  <a class="active"><%out.print(category); count++; %></a>
+ 	  <a class="active" href="<% out.println(link);%>"><%out.print(category); count++; %></a>
  	  </li>  
     </ul>
  	<% }
@@ -38,7 +40,7 @@
  %>
 	<ul>
  	  <li>
- 	  <a class="active"><%out.print(category); count++; %></a>
+ 	  <a class="active" href="<% out.println(link);%>"><%out.print(category); count++; %></a>
  	  </li>  
     </ul>
 

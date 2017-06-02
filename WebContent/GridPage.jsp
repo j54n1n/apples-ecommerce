@@ -13,11 +13,13 @@
 
 <title>Apples e-commerce South Tyrol</title>
 </head>
-<body>
-<div id="page">
 
+<body>
+
+<div id="page">
 <c:import url="include/header.inc.jsp"/>
 <c:import url="include/navigation.inc.jsp"/>
+
 <div id="cbp-pgcontainer" class="cbp-pgcontainer">
 	<ul class="cbp-pggrid">
    <%  
@@ -70,6 +72,6 @@
    </div>
 
 <c:import url="include/footer.inc.jsp"/>
-
+</div>
 </body>
 </html>

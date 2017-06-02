@@ -385,7 +385,6 @@ span.psw {
 }
 
 .cbp-pgcontainer {
-	position: relative;
 	width: 100%;
 	padding: 0 30px 100px 30px;
 }
@@ -393,12 +392,11 @@ span.psw {
 .cbp-pgcontainer ul,
 .cbp-pgcontainer li {
 	padding: 0;
-	margin: 0;
+	margin: 10px
 	list-style-type: none;
 }
 
 .cbp-pggrid {
-	position: relative;
 	text-align: center;
 }
 /* If flexbox is supported we'll use it to lay out the grid */
