@@ -19,6 +19,12 @@
    }
 	  
    else{
+	   // Workaround: Reread new keys.
+	   pwd = request.getParameter("psw");
+	   publicKey = lsi.getPublicKeyFromEmail(email);
+	   kh = new KeyHelper(publicKey);
+	   pwd = kh.encryptString(pwd);
+	   //
 	   String token = lsi.getCookieToken();
 	   Cookie cookie = new Cookie("token", token);
 	   cookie.setMaxAge(3600 * 24* 30);
