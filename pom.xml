@@ -41,6 +41,12 @@
         <version>2.3.1</version>
         <scope>provided</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.xml.rpc/jboss-jaxrpc-api_1.1_spec -->
+    <dependency>
+        <groupId>org.jboss.spec.javax.xml.rpc</groupId>
+        <artifactId>jboss-jaxrpc-api_1.1_spec</artifactId>
+        <version>1.0.1.Final</version>
+    </dependency>
        
   </dependencies>
   <build>
