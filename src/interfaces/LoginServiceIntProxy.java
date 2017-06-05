@@ -98,10 +98,10 @@ public class LoginServiceIntProxy implements interfaces.LoginServiceInt {
     return loginServiceInt.logout(arg0);
   }
   
-  public java.lang.String updateCookieToken(int arg0) throws java.rmi.RemoteException, interfaces.SQLException{
+  public java.lang.String updateCookieToken(int arg0, java.lang.String arg1) throws java.rmi.RemoteException, interfaces.SQLException{
     if (loginServiceInt == null)
       _initLoginServiceIntProxy();
-    return loginServiceInt.updateCookieToken(arg0);
+    return loginServiceInt.updateCookieToken(arg0, arg1);
   }
   
   public java.lang.String getError() throws java.rmi.RemoteException{

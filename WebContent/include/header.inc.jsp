@@ -215,12 +215,12 @@ else{
 	   else{
 		   myCookie.setMaxAge(60 * 60 * 24 * 30);
 		   myCookie.setPath("/");
-		   String token =lsi.updateCookieToken(result);
+		   String token =lsi.updateCookieToken(result, myCookie.getValue());
 		   myCookie.setValue(token);
 		   CustomerIntProxy cip = new CustomerIntProxy();
 	       session.setAttribute("customer_id", result);
 	       session.setAttribute("logged", true);
-	       session.setAttribute("email",    cip.findByCookie(result, myCookie.getValue()).getEmail());
+	       session.setAttribute("email",    cip.findByCookie(result, token).getEmail());
 	       response.addCookie(myCookie);
 	       
 	       %>
