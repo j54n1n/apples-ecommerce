@@ -220,7 +220,7 @@ else{
 		   CustomerIntProxy cip = new CustomerIntProxy();
 	       session.setAttribute("customer_id", result);
 	       session.setAttribute("logged", true);
-	       session.setAttribute("email",    cip.find(result).getEmail());
+	       session.setAttribute("email",    cip.findByCookie(result, myCookie.getValue()).getEmail());
 	       response.addCookie(myCookie);
 	       
 	       %>

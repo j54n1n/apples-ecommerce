@@ -50,6 +50,12 @@ public class CustomerIntProxy implements interfaces.CustomerInt {
     return customerInt.find(arg0, arg1);
   }
   
+  public interfaces.CustomerObject findByCookie(int arg0, java.lang.String arg1) throws java.rmi.RemoteException{
+    if (customerInt == null)
+      _initCustomerIntProxy();
+    return customerInt.findByCookie(arg0, arg1);
+  }
+  
   public boolean delete() throws java.rmi.RemoteException{
     if (customerInt == null)
       _initCustomerIntProxy();
