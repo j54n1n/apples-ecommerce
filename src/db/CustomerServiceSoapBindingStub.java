@@ -27,6 +27,9 @@ public class CustomerServiceSoapBindingStub extends org.apache.axis.client.Stub 
         oper.setName("find");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://interfaces/", "customerObject"));
         oper.setReturnClass(interfaces.CustomerObject.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "return"));
@@ -189,7 +192,7 @@ public class CustomerServiceSoapBindingStub extends org.apache.axis.client.Stub 
         }
     }
 
-    public interfaces.CustomerObject find(int arg0) throws java.rmi.RemoteException {
+    public interfaces.CustomerObject find(int arg0, java.lang.String arg1) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -205,7 +208,7 @@ public class CustomerServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Integer(arg0)});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Integer(arg0), arg1});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;

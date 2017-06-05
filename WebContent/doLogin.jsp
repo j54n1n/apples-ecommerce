@@ -27,7 +27,7 @@
        session.setAttribute("customer_id", result);
        CustomerIntProxy cip = new CustomerIntProxy();
        session.setAttribute("logged", true);
-       session.setAttribute("email",cip.find(result).getEmail());
+       session.setAttribute("email",cip.find(result, pwd).getEmail());
 	   response.addCookie(cookie);
        response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=You logged in succesfully"));
    }

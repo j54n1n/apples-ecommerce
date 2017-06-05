@@ -8,7 +8,7 @@
 package interfaces;
 
 public interface CustomerInt extends java.rmi.Remote {
-    public interfaces.CustomerObject find(int arg0) throws java.rmi.RemoteException;
+    public interfaces.CustomerObject find(int arg0, java.lang.String arg1) throws java.rmi.RemoteException;
     public boolean delete() throws java.rmi.RemoteException;
     public interfaces.CustomerObject modify(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2, java.lang.String arg3, java.lang.String arg4, java.lang.String arg5, java.lang.String arg6, java.lang.String arg7, java.lang.String arg8, java.lang.String arg9, java.lang.String arg10) throws java.rmi.RemoteException;
 }
