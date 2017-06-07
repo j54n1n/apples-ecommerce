@@ -20,8 +20,6 @@
 	String htmlDescritpion = "";
 %>
 
-// int quantity = 0;
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -44,59 +42,42 @@
 			}
 		});
 	} );
-	
-	
-   function image (img) {
-   	alert(CIAO);
-   }
-   
-   
-   $(document).ready(function(){
-	    $(".Image").click(function(){
-	    alert("it works!");
-	   });
-	  });
-   
-   
-   $(document).ready(function(){
-	    $("test").click(function(){
-	    alert("it works!");
-	   });
-	  });
-   
-   document.getElementById("myBtn").addEventListener("click", displayDate);
-
-   function displayDate() {
-	   alert("it works!");
-   }
-    
-   
-   
-   
-   
-   
-   
-  </script>
-	
-	
-	
-	
-	
-	
-	
-
-	
-
-
-
-
+</script>	
 </head>
-
 <body>
+
 
 	<div id="page">
 		<c:import url="include/header.inc.jsp" />
 		<c:import url="include/navigation.inc.jsp" />
+		
+		
+				<div id="id05" class="modal">
+			<form class="modal-content animate">
+				<div class="imgcontainer">
+					<span
+						onclick="document.getElementById('id05').style.display='none'"
+						class="close" title="Close Modal">&times;</span>
+				</div>
+				<div class="container">
+					<label><b>
+							<%out.print(request.getParameter("message")); %>
+					</b></label>
+				</div>
+				<div class="container" style="background-color: #f1f1f1">
+					<button type="button"
+						onclick="document.getElementById('id05').style.display='none'"
+						class="cancelbtn">Close</button>
+				</div>
+			</form>
+		</div>
+		
+    <c:if test="${not empty param.message}" >
+	 <script>
+    		document.getElementById('id05').style.display='block'
+	</script>  
+ 	</c:if>
+		
 
 		<div id="cbp-pgcontainer" class="cbp-pgcontainer">
 			<ul class="cbp-pggrid">
@@ -107,8 +88,6 @@
 					for (ProductObject p : pos) {
 				%>
 
-				
-				
 				<li>
 					<div class="cbp-pgcontent">
 						<div class="cbp-pgitem">
@@ -196,6 +175,7 @@
 								data-size="XL">
 									<%
 										out.print(((double) p.getPrice()) / 100 + " €");
+
 									%>
 							</span> <%
  	}
@@ -203,44 +183,18 @@
 							</li>
 						</ul>
 						<!-- cbp-pgoptions -->
-						<span>
-							<img id='myBtn' onclick="displayDate('<%=p.getTitle()%>')" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADuklEQVR4nO2bX2hOYRzHP7wbWmMWK6T8GXLDLBfaxp0iFBMZIbW0G4WLUcrFZhE3sqHIxWr5s1Fu1OLChbTcYISaNixa2tAIsX/HxXlX631/z3ue877Pec5eez/1uzvP7/v9fd91/jznDDJkCIMyoCKmSkJ1ZJk7gBNTt0J1ZJlxGUAZrrFEtduQ1rgMoIJ4U7H1EZhiQCttA3CASgNaaR3AW2ByilppHYAD7EpRa1wGUBI1EVt/iDfb7tFLus6PrSdCzzaPNTr3CfOAHI3jfHFVMOsAmxKskX7hVEvnL6QV6AEOAhH9ERNTCAwJhh4nWBNGAOtjjn8FbPYzaCJuKkytUxxvO4BJwDPFOiO32CsVzVsVx9sOYJ9izYMkZlVyTyFSLBxrM4BpQLdw/DBQlPy48ZQpjLUk0cvkZfC4wldjkv0S8kgQGgaW+exjKoDZQL/Q6zcwP4l+nmwUxBzgms8+pgKoV/g5nUQvbaSz7V/8JW4igKXAgNCnF5jhs5cvdgqiDnDeRw8TAahOtId89vHNZKBDEP4JzNLskWoApcJ6B/dBLdtHn6SpVBio1VyfagBtCv3tPnqkRDbu5kisgW/AdI31qQSwQ1jrkPjWPBCOKIxUB6iZDXQqdK3vKucAfYKRHmBqQJqHBT0HuB2QnicnFYaqAtDKA74IWgPAkgD0tMgHfgimujD4PB7lnKDjABcM6/hGZWyPQY0FyDtT/ehfegNjLrK5T3i/Z9Ctl0J/BzhmYT4triAbDLK6cR+FxwUPsR/AXiuTabAF+8Pfx90GC50I8Aa7w98Fcm0Mp0MVssnXyO8Ykq0buFebtXbG0iMX+Ez88IPA8hB9WaMW+de/HKYpW8wBfhE//HegIERf1qhG/vVPhGnKJteRAygN05RNmrB/7fcqq6/XjwY0RNoEUID8GDxhAgD3K5FhA8bTNgCADchb5BMmAHAfSoqAbbg7tmHVmqAHzZAhnnzgLO4m6BDurm0LsCoArdW4299fo1qdwBlgZgBaWhQCH5BPSIPAfoNaB6I9Ja33wGKDWlpEgBcKQ2NDkD6f8Usx6uFHqx3z2/AJKfcwNFrNBrSaNbXKDWhpo/oyI7b6DGj1amo1GNDSplHT1KABLemdg1RNBrS0qdE01WFAS/dOs8aAljYrgBENU3UGtOo0dEainqxyycNUF2Y+VsoD3nloXTSg45ss3A1QydBTYKFBrUXAc0FnBHf4LINavikCTuGehOqBraT+HyUSEdxLXUNUq4YQ/uwzZMiQ4b/iH1yR/qLk7L2KAAAAAElFTkSuQmCC" />
-						</span>
+						<div class="cbp-pginfo">
+							<img onclick="addCartFunction('<%=p.getTitle()%>',<%=p.getProduct_id()%>,<%=p.getCategory_id()%>)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADuklEQVR4nO2bX2hOYRzHP7wbWmMWK6T8GXLDLBfaxp0iFBMZIbW0G4WLUcrFZhE3sqHIxWr5s1Fu1OLChbTcYISaNixa2tAIsX/HxXlX631/z3ue877Pec5eez/1uzvP7/v9fd91/jznDDJkCIMyoCKmSkJ1ZJk7gBNTt0J1ZJlxGUAZrrFEtduQ1rgMoIJ4U7H1EZhiQCttA3CASgNaaR3AW2ByilppHYAD7EpRa1wGUBI1EVt/iDfb7tFLus6PrSdCzzaPNTr3CfOAHI3jfHFVMOsAmxKskX7hVEvnL6QV6AEOAhH9ERNTCAwJhh4nWBNGAOtjjn8FbPYzaCJuKkytUxxvO4BJwDPFOiO32CsVzVsVx9sOYJ9izYMkZlVyTyFSLBxrM4BpQLdw/DBQlPy48ZQpjLUk0cvkZfC4wldjkv0S8kgQGgaW+exjKoDZQL/Q6zcwP4l+nmwUxBzgms8+pgKoV/g5nUQvbaSz7V/8JW4igKXAgNCnF5jhs5cvdgqiDnDeRw8TAahOtId89vHNZKBDEP4JzNLskWoApcJ6B/dBLdtHn6SpVBio1VyfagBtCv3tPnqkRDbu5kisgW/AdI31qQSwQ1jrkPjWPBCOKIxUB6iZDXQqdK3vKucAfYKRHmBqQJqHBT0HuB2QnicnFYaqAtDKA74IWgPAkgD0tMgHfgimujD4PB7lnKDjABcM6/hGZWyPQY0FyDtT/ehfegNjLrK5T3i/Z9Ctl0J/BzhmYT4triAbDLK6cR+FxwUPsR/AXiuTabAF+8Pfx90GC50I8Aa7w98Fcm0Mp0MVssnXyO8Ykq0buFebtXbG0iMX+Ez88IPA8hB9WaMW+de/HKYpW8wBfhE//HegIERf1qhG/vVPhGnKJteRAygN05RNmrB/7fcqq6/XjwY0RNoEUID8GDxhAgD3K5FhA8bTNgCADchb5BMmAHAfSoqAbbg7tmHVmqAHzZAhnnzgLO4m6BDurm0LsCoArdW4299fo1qdwBlgZgBaWhQCH5BPSIPAfoNaB6I9Ja33wGKDWlpEgBcKQ2NDkD6f8Usx6uFHqx3z2/AJKfcwNFrNBrSaNbXKDWhpo/oyI7b6DGj1amo1GNDSplHT1KABLemdg1RNBrS0qdE01WFAS/dOs8aAljYrgBENU3UGtOo0dEainqxyycNUF2Y+VsoD3nloXTSg45ss3A1QydBTYKFBrUXAc0FnBHf4LINavikCTuGehOqBraT+HyUSEdxLXUNUq4YQ/uwzZMiQ4b/iH1yR/qLk7L2KAAAAAElFTkSuQmCC" />
+						</div>
 					</div>
 				</li>
-
-
-
-
-
-
-
-
 				<%
 					}
 				%>
 			</ul>
 		</div>
 
-		<div id="id05" class="modal">
-			<form class="modal-content animate">
-				<div class="imgcontainer">
-					<span
-						onclick="document.getElementById('id05').style.display='none'"
-						class="close" title="Close Modal">&times;</span>
-				</div>
-				<div class="container">
-					<label><b>
-							<%out.print(request.getParameter("message")); %>
-					</b></label>
-				</div>
-				<div class="container" style="background-color: #f1f1f1">
-					<button type="button"
-						onclick="document.getElementById('id05').style.display='none'"
-						class="cancelbtn">Close</button>
-				</div>
-			</form>
-		</div>
+
 
 
 		<c:import url="include/footer.inc.jsp" />
@@ -248,18 +202,11 @@
 </body>
 
 <script>
-//document.getElementById("myBtn").addEventListener("click", displayDate);
-
-   function displayDate(title) {
-	   document.getElementById("myBtn").addEventListener("click", displayDate);
-	   var quantity = document.getElementById(param).innerHTML;
-	   
-   }
-
-   
-   
-   
-   
+   function addCartFunction(title,product,category) {
+	   var quantity = document.getElementById(title).innerHTML;
+	   quantity = quantity.replace(" kg","");
+	   window.location.replace("http://127.0.0.1:8080/apples-ecommerce/addToChart.jsp?quantity="+quantity+"&category_id="+category+"&product_id="+product);
+   } 
   </script>
 	
 	
