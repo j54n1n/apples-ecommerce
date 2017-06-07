@@ -74,7 +74,7 @@
     		
    
     
-    		document.getElementById("test").innerHTML = "";
+    		document.getElementById("test").innerHTML = String(e.name) + "" + "e";
     		
         $input.val(value + " kg");
         
@@ -85,8 +85,7 @@
     		 e = e || window.event;
     		    e = e.target || e.srcElement;
     		    if (e.nodeName === 'BUTTON') {
-    		        alert(e.name);
-    		        alert(e.id);
+    		  
     		    }
     	
     		e.preventDefault();
@@ -98,9 +97,9 @@
     		} else {
     			value =100;
     		}
-  
+    		 document.getElementById("test").innerHTML = String(e.name) + "" + "e";
     		$input.val(value + " kg");
-    		 document.getElementById("test").innerHTML = "";
+    		 document.getElementById("test").innerHTML = e.id + "" + "e";
     	});
 
 
