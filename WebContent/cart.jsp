@@ -22,6 +22,7 @@
 
 <c:import url="include/header.inc.jsp"/>
 <c:import url="include/navigation.inc.jsp"/>
+  <div class="shopping-cart">
   <!-- Product #1 -->
   <%
   CartIntProxy cip = new CartIntProxy();
@@ -30,43 +31,39 @@
   	ProductObject product = new ProductIntProxy().findProduct(ceo.getProduct_id());
   	double total = ((((double)product.getPrice())/100))*ceo.getQuantity();
   %>
-   <div class="shopping-cart">
- 
       <div class="item">
-        <div class="buttons">
-          <span class="delete-btn"></span>
-        </div>
-
-        <div class="image">
-          <img src=<%out.println(product.getImgLink()); %> alt="" />
-        </div>
-
-        <div class="description">
+        <div class="title">
           <span><%out.println(product.getTitle() ); %></span>
         </div>
-
+        <div class="image">
+          <img src=<%
+          String kg = "";
+          if (product.getCategory_id() == 1)
+        	  kg = " kg";
+          out.println(product.getImgLink()); 
+          
+          %> alt="" />
+        </div>
         <div class="quantity">
-          <button class="plus-btn" type="button" name="button">
-            <img src="plus.svg" alt="" />
-          </button>
-          <h1><%out.println(ceo.getQuantity());%></h1>
-          <button class="minus-btn" type="button" name="button">
-            <img src="minus.svg" alt="" />
-          </button>
+          <button class="plus-btn" type="button"  id="<%out.print(product.getProduct_id());%>" name="<%out.print(product.getPrice());%>">+ </button>
+          <input type="text"  value="<%out.println(ceo.getQuantity() + kg);%>"></input>
+           <button class="minus-btn" type="button" id="<%out.print(product.getProduct_id());%>" name="<%out.print(product.getPrice());%>">- </button>
         </div>
 
-        <div class="total-price"><%out.println(total); %></div>
+        <div class="total-price" id="test"><%out.print(total + " €"); %></div>
       </div>
-</div>
 <%
 
   } %>
+  
+  </div>
 
     <script type="text/javascript">
       $('.minus-btn').on('click', function(e) {
     		e.preventDefault();
     		var $this = $(this);
     		var $input = $this.closest('div').find('input');
+ 	
     		var value = parseInt($input.val());
 
     		if (value > 1) {
@@ -74,29 +71,39 @@
     		} else {
     			value = 0;
     		}
-
-        $input.val(value);
+    		
+   
+    
+    		document.getElementById("test").innerHTML = "";
+    		
+        $input.val(value + " kg");
+        
 
     	});
 
     	$('.plus-btn').on('click', function(e) {
+    		 e = e || window.event;
+    		    e = e.target || e.srcElement;
+    		    if (e.nodeName === 'BUTTON') {
+    		        alert(e.name);
+    		        alert(e.id);
+    		    }
+    	
     		e.preventDefault();
     		var $this = $(this);
     		var $input = $this.closest('div').find('input');
     		var value = parseInt($input.val());
-
     		if (value < 100) {
       		value = value + 1;
     		} else {
     			value =100;
     		}
-
-    		$input.val(value);
+  
+    		$input.val(value + " kg");
+    		 document.getElementById("test").innerHTML = "";
     	});
 
-      $('.like-btn').on('click', function() {
-        $(this).toggleClass('is-active');
-      });
+
     </script>
 </div>
 <c:import url="include/footer.inc.jsp"/>
