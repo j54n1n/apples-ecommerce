@@ -55,6 +55,7 @@
 
 	   cip.addCartEntry(new interfaces.CartEntryObject(Integer.parseInt(cart_id), product_id,quantity,reportDate));
 	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/GridPage.jsp?category_id="+category_id+"&message=Added to cart"));
+	   //
    }     
   %>
 
