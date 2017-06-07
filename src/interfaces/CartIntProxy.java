@@ -50,6 +50,12 @@ public class CartIntProxy implements interfaces.CartInt {
     return cartInt.getCartContent(arg0);
   }
   
+  public void minusOne(int arg0, int arg1) throws java.rmi.RemoteException{
+    if (cartInt == null)
+      _initCartIntProxy();
+    cartInt.minusOne(arg0, arg1);
+  }
+  
   public java.lang.String getGUUID() throws java.rmi.RemoteException{
     if (cartInt == null)
       _initCartIntProxy();
@@ -60,6 +66,12 @@ public class CartIntProxy implements interfaces.CartInt {
     if (cartInt == null)
       _initCartIntProxy();
     return cartInt.addCartEntry(arg0);
+  }
+  
+  public void addOne(int arg0, int arg1) throws java.rmi.RemoteException{
+    if (cartInt == null)
+      _initCartIntProxy();
+    cartInt.addOne(arg0, arg1);
   }
   
   

@@ -2140,11 +2140,28 @@ a.ui-button:active,
   color: #4CAF50;
 }
 
+.delete {
+  height: auto;
+  border-bottom: 1px solid #E1E8EE;
+  color: #4CAF50;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+
+
+
+
 button[class*=btn] {
 	heigth:20px;
 	heigth:50px;
 	font-size:20px;
 }
+
+
+.buttonDelete {background-color: #f44336;} /* Red */ 
+
+
 .minus-btn img {
   margin-top: 3px;
 }

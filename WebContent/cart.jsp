@@ -25,8 +25,18 @@
   <div class="shopping-cart">
   <!-- Product #1 -->
   <%
+  Cookie[] cookies = request.getCookies();
+  Cookie myCookie = null;
+  if (cookies != null) {
+   for (Cookie cookie : cookies) {
+     if (cookie.getName().equals("cart")) {
+        myCookie = cookie;
+      }
+    }
+  }
+  if (myCookie != null){
   CartIntProxy cip = new CartIntProxy();
-  CartEntryObject[] ceos = cip.getCartContent(1);
+  CartEntryObject[] ceos = cip.getCartContent(Integer.parseInt(myCookie.getValue()));
   for (CartEntryObject ceo : ceos){
   	ProductObject product = new ProductIntProxy().findProduct(ceo.getProduct_id());
   	double total = ((((double)product.getPrice())/100))*ceo.getQuantity();
@@ -44,66 +54,45 @@
           
           %> alt="" />
         </div>
-        <div class="quantity">
-          <button class="plus-btn" type="button"  id="<%out.print(product.getProduct_id());%>" name="<%out.print(product.getPrice());%>">+ </button>
-          <input type="text"  value="<%out.println(ceo.getQuantity() + kg);%>"></input>
-           <button class="minus-btn" type="button" id="<%out.print(product.getProduct_id());%>" name="<%out.print(product.getPrice());%>">- </button>
+        <div class="quantity" id="<%out.print(product.getProduct_id());%>">
+          <button class="plus-btn" type="button"  onclick="plusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>)" name="<%out.print(product.getPrice());%>">+ </button>
+          <input type="text" id="<%out.print("i"+product.getProduct_id());%>"  value="<%out.println(ceo.getQuantity() + kg);%>"></input>
+          <button class="minus-btn" type="button" onclick="minusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>)" name="<%out.print(product.getPrice());%>">- </button>
+          <br></br>
+          <button class="buttonDelete" type="button"> Delete Item </button>
         </div>
 
-        <div class="total-price" id="test"><%out.print(total + " €"); %></div>
+        <div class="total-price" id="<%out.print("t"+product.getProduct_id());%>"><%out.print(total + " €"); %></div>
       </div>
 <%
 
+  }
+  %>
+  <div class="total-price"> TOTAL: </div>
+  <% 
+  } else{%>
+	  
+	  <h1> Cart Empty! </h1>
+	  <% 
   } %>
   
   </div>
 
     <script type="text/javascript">
-      $('.minus-btn').on('click', function(e) {
-    		e.preventDefault();
-    		var $this = $(this);
-    		var $input = $this.closest('div').find('input');
- 	
-    		var value = parseInt($input.val());
-
-    		if (value > 1) {
-    			value = value - 1;
-    		} else {
-    			value = 0;
-    		}
-    		
-   
-    
-    		document.getElementById("test").innerHTML = String(e.name) + "" + "e";
-    		
-        $input.val(value + " kg");
-        
-
-    	});
-
-    	$('.plus-btn').on('click', function(e) {
-    		 e = e || window.event;
-    		    e = e.target || e.srcElement;
-    		    if (e.nodeName === 'BUTTON') {
-    		  
-    		    }
-    	
-    		e.preventDefault();
-    		var $this = $(this);
-    		var $input = $this.closest('div').find('input');
-    		var value = parseInt($input.val());
-    		if (value < 100) {
-      		value = value + 1;
-    		} else {
-    			value =100;
-    		}
-    		 document.getElementById("test").innerHTML = String(e.name) + "" + "e";
-    		$input.val(value + " kg");
-    		 document.getElementById("test").innerHTML = e.id + "" + "e";
-    	});
-
-
+    	   function plusFunction(product,price) {
+    		 var quantity = document.getElementById("i"+product).value;
+    		 document.getElementById("i"+product).value = (parseInt(quantity) + 1) + " kg";
+    		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) + 1) * parseFloat(price) / 100) + " €";		 
+    	   } 
+    	   
+    	   function minusFunction(product,price) {
+    		 var quantity = document.getElementById("i"+product).value;
+      		 document.getElementById("i"+product).value = parseInt(quantity) - 1 + " kg";;
+      		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) - 1) * parseFloat(price) / 100) + " €";
+   	   		}  
     </script>
+    	
+ 
 </div>
 <c:import url="include/footer.inc.jsp"/>
 
