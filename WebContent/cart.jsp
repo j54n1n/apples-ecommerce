@@ -88,7 +88,7 @@
   %>
   <div class="total-order" id="total-order"> Total: </div>
   <button class="btn-order" type="button"> Confirm Order </button>
-  <button class="btn-order" type="button"> Save Cart </button>
+  <button class="btn-order" type="button" onclick="save('<%out.print(myCookie.getValue());%>')"> Save Cart </button>
   <% 
   } else{%>
 	  
@@ -140,7 +140,27 @@
     		    this.array = test;
      		   document.getElementById("total-order").innerHTML = total - toRemove;
     		   document.getElementById(id).remove();
-     	   }  
+     	   } 
+    	   
+    	   function save(cartId) {
+    		    alert (cartId);
+    		    //createCookie("products","",-1);
+    		    var date = new Date();
+    		    date.setTime(date.getTime() + (30*24*60*60*1000));
+    	        expires = "; expires=" + date.toUTCString();
+    		    var name = "products";
+    		    var value = "";
+    			  for(var i = array.length - 1; i >= 0; i--) {
+    				     var product = array[i];
+    		    		 var quantity = document.getElementById("i"+product).value;
+    		      		 value=value+product+","+quantity+";";
+    		      		 
+    			  }
+    	
+    		    document.cookie = name + "=" + value + expires + "; path=/";
+    		    window.location = ("saveCart.jsp?cart_id="+cartId);
+    		}
+
     	   
     	   
     	   
