@@ -14,7 +14,6 @@
 <script type="text/javascript" src="js/scripts.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
 
-
 <title>Apples e-commerce Cart</title>
 </head>
 <body>
@@ -25,6 +24,8 @@
   <div class="shopping-cart">
   <!-- Product #1 -->
   <%
+ 
+  
   Cookie[] cookies = request.getCookies();
   Cookie myCookie = null;
   if (cookies != null) {
@@ -34,9 +35,18 @@
       }
     }
   }
+  
+  
+  
   if (myCookie != null){
+  String st =  "";
   CartIntProxy cip = new CartIntProxy();
   CartEntryObject[] ceos = cip.getCartContent(Integer.parseInt(myCookie.getValue()));
+
+  int c = 0;
+  for (CartEntryObject ceo : ceos){
+	  st += ceo.getProduct_id();
+	c++;}
   for (CartEntryObject ceo : ceos){
   	ProductObject product = new ProductIntProxy().findProduct(ceo.getProduct_id());
   	double total = ((((double)product.getPrice())/100))*ceo.getQuantity();
@@ -59,7 +69,7 @@
           <input type="text" id="<%out.print("i"+product.getProduct_id());%>"  value="<%out.println(ceo.getQuantity() + kg);%>"></input>
           <button class="minus-btn" type="button" onclick="minusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>)" name="<%out.print(product.getPrice());%>">- </button>
           <br></br>
-          <button class="buttonDelete" type="button"> Delete Item </button>
+          <button class="buttonDelete" type="button" onclick="total('<%out.print(st);%>')"> Delete Item </button>
         </div>
 
         <div class="total-price" id="<%out.print("t"+product.getProduct_id());%>"><%out.print(total + " €"); %></div>
@@ -68,6 +78,7 @@
 
   }
   %>
+  <script>total(<%out.print(st);%></script>
   <div class="total-price"> TOTAL: </div>
   <% 
   } else{%>
@@ -75,7 +86,7 @@
 	  <h1> Cart Empty! </h1>
 	  <% 
   } %>
-  
+     
   </div>
 
     <script type="text/javascript">
@@ -90,6 +101,10 @@
       		 document.getElementById("i"+product).value = parseInt(quantity) - 1 + " kg";;
       		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) - 1) * parseFloat(price) / 100) + " €";
    	   		}  
+    	   
+    	   function total(test) {
+    		   alert(test[0]);
+     	   }  
     </script>
     	
  

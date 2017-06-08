@@ -30,7 +30,7 @@ if (!attribute && myCookie == null){ %>
 <div id="top"><ul>
   <li><a href="#home">Home</a></li>
   <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/cart.jsp"); %>">Your Cart</a></li>
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
   <div id="id01" class="modal">
    <form class="modal-content animate" action="/apples-ecommerce/doLogin.jsp">
