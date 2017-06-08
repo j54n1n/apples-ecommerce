@@ -58,7 +58,7 @@
    <script> total('<%out.print(st);%>'); </script>
   
   
-      <div class="item" onload="total('<%out.print(st);%>')">
+      <div class="item" id="<%out.print(product.getProduct_id());%>" onload="total('<%out.print(st);%>')">
         <div class="title">
           <span><%out.println(product.getTitle() ); %></span>
         </div>
@@ -72,20 +72,23 @@
           %> alt="" />
         </div>
         <div class="quantity" id="<%out.print(product.getProduct_id());%>">
-          <button class="plus-btn" type="button"  onclick="plusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>,<%out.print(st);%>)" name="<%out.print(product.getPrice());%>">+ </button>
+          <button class="plus-btn" type="button"  onclick="plusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>,'<%out.print(st);%>')" name="<%out.print(product.getPrice());%>">+ </button>
           <input type="text" id="<%out.print("i"+product.getProduct_id());%>"  value="<%out.println(ceo.getQuantity() + kg);%>"></input>
-          <button class="minus-btn" type="button" onclick="minusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>,<%out.print(st);%>)" name="<%out.print(product.getPrice());%>">- </button>
+          <button class="minus-btn" type="button" onclick="minusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>,'<%out.print(st);%>')" name="<%out.print(product.getPrice());%>">- </button>
           <br></br>
-          <button class="buttonDelete" type="button" onclick="total('<%out.print(st);%>')"> Delete Item </button>
+          <button class="buttonDelete" type="button" onclick="remove('<%out.print(product.getProduct_id());%>')"> Delete Item </button>
         </div>
 
         <div class="total-price" id="<%out.print("t"+product.getProduct_id());%>"><%out.print(total + " €"); %></div>
+    
       </div>
 <%
 
   }
   %>
-  <div class="total-price" id="total-price"> TOTAL: </div>
+  <div class="total-order" id="total-order"> Total: </div>
+  <button class="btn-order" type="button"> Confirm Order </button>
+  <button class="btn-order" type="button"> Save Cart </button>
   <% 
   } else{%>
 	  
@@ -96,28 +99,52 @@
   </div>
 
     <script type="text/javascript">
-    	   function plusFunction(product,price,array) {
+    	 var array = null;
+    
+    	   function plusFunction(product,price,array1) {
+    		 if (this.array == null)
+    			 this.array=array1;
     		 var quantity = document.getElementById("i"+product).value;
     		 document.getElementById("i"+product).value = (parseInt(quantity) + 1) + " kg";
     		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) + 1) * parseFloat(price) / 100) + " €";	
     		 total(array);
     	   } 
     	   
-    	   function minusFunction(product,price,array) {
+    	   function minusFunction(product,price,array1) {
+    			 if (this.array == null)
+        			 this.array=array1;
     		 var quantity = document.getElementById("i"+product).value;
       		 document.getElementById("i"+product).value = parseInt(quantity) - 1 + " kg";;
       		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) - 1) * parseFloat(price) / 100) + " €";
-      		 total(array);
+      		 total(this.array);
    	   		}  
     	   
-    	   function total(test) {
+    	   function total(array) {
+    		   this.array = array;
     		   var total =  0;
-    		   for (var i = 0, len = test.length; i < len; i++) {
-    			   var test1 = parseFloat(document.getElementById("t"+test[i]).innerHTML);
+    		   for (var i = 0, len = array.length; i < len; i++) {
+    			   var test1 = parseFloat(document.getElementById("t"+array[i]).innerHTML);
     			   total = total + test1;
     			 }
-    		   document.getElementById("total-price").innerHTML = total;
+    		   document.getElementById("total-order").innerHTML = "<b>Total " + total + " €</b>";
      	   }  
+    	   
+    	   function remove(id) {
+    		   var total    = parseFloat(document.getElementById("total-price").innerHTML);
+    		   var toRemove = parseFloat(document.getElementById("t"+id).innerHTML);
+    		   var test = "";
+    		  for(var i = array.length - 1; i >= 0; i--) {
+    		     if(array[i] !== id) {
+    	     		test = test + array[i];
+    		   }}
+    		    this.array = test;
+     		   document.getElementById("total-order").innerHTML = total - toRemove;
+    		   document.getElementById(id).remove();
+     	   }  
+    	   
+    	   
+    	   
+    	   
     </script>
     	
  

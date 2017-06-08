@@ -2107,7 +2107,7 @@ a.ui-button:active,
 
 .title {
   height: auto;
-  border-bottom: 1px solid #E1E8EE;
+  border-bottom: 1px solid #4CAF50;
   color: #4CAF50;
   font-size: 30px;
   font-weight: 400;
@@ -2117,6 +2117,7 @@ a.ui-button:active,
   padding: 20px 30px;
   height: auto;
   display: flex;
+  border: 1px solid #4CAF50;
 }
 
 /* Product Image */
@@ -2142,7 +2143,7 @@ a.ui-button:active,
 
 .delete {
   height: auto;
-  border-bottom: 1px solid #E1E8EE;
+  border-bottom: 1px solid #4CAF50;
   color: #4CAF50;
   font-size: 30px;
   font-weight: 400;
@@ -2178,6 +2179,24 @@ button[class*=btn] {
   font-size: 30px;
   color: #4CAF50;
 }
+
+.total-order {
+  width: 100%;
+  padding-top: 50px;  padding-bottom: 50px;
+  padding-right: 10px;
+  text-align: right;
+  font-size: 50px;
+  color: #4CAF50;
+}
+
+btn-order {
+  width: 10%;
+  text-align: left;
+  font-size: 50px;
+  color: #4CAF50;
+}
+
+
 
 /* Responsive */
 @media (max-width: 800px) {
