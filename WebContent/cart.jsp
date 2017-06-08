@@ -16,13 +16,7 @@
 
 <title>Apples e-commerce Cart</title>
 </head>
-<body>
-<div id="page">
 
-<c:import url="include/header.inc.jsp"/>
-<c:import url="include/navigation.inc.jsp"/>
-  <div class="shopping-cart">
-  <!-- Product #1 -->
   <%
  
   
@@ -47,11 +41,24 @@
   for (CartEntryObject ceo : ceos){
 	  st += ceo.getProduct_id();
 	c++;}
+  %>
+  <body onload="total('<%out.print(st);%>')">
+<div id="page">
+
+<c:import url="include/header.inc.jsp"/>
+<c:import url="include/navigation.inc.jsp"/>
+  <div class="shopping-cart">
+  <!-- Product #1 -->
+  
+  <% 
   for (CartEntryObject ceo : ceos){
   	ProductObject product = new ProductIntProxy().findProduct(ceo.getProduct_id());
   	double total = ((((double)product.getPrice())/100))*ceo.getQuantity();
   %>
-      <div class="item">
+   <script> total('<%out.print(st);%>'); </script>
+  
+  
+      <div class="item" onload="total('<%out.print(st);%>')">
         <div class="title">
           <span><%out.println(product.getTitle() ); %></span>
         </div>
@@ -65,9 +72,9 @@
           %> alt="" />
         </div>
         <div class="quantity" id="<%out.print(product.getProduct_id());%>">
-          <button class="plus-btn" type="button"  onclick="plusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>)" name="<%out.print(product.getPrice());%>">+ </button>
+          <button class="plus-btn" type="button"  onclick="plusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>,<%out.print(st);%>)" name="<%out.print(product.getPrice());%>">+ </button>
           <input type="text" id="<%out.print("i"+product.getProduct_id());%>"  value="<%out.println(ceo.getQuantity() + kg);%>"></input>
-          <button class="minus-btn" type="button" onclick="minusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>)" name="<%out.print(product.getPrice());%>">- </button>
+          <button class="minus-btn" type="button" onclick="minusFunction(<%out.print(product.getProduct_id());%>, <%out.print(product.getPrice());%>,<%out.print(st);%>)" name="<%out.print(product.getPrice());%>">- </button>
           <br></br>
           <button class="buttonDelete" type="button" onclick="total('<%out.print(st);%>')"> Delete Item </button>
         </div>
@@ -78,8 +85,7 @@
 
   }
   %>
-  <script>total(<%out.print(st);%></script>
-  <div class="total-price"> TOTAL: </div>
+  <div class="total-price" id="total-price"> TOTAL: </div>
   <% 
   } else{%>
 	  
@@ -90,20 +96,27 @@
   </div>
 
     <script type="text/javascript">
-    	   function plusFunction(product,price) {
+    	   function plusFunction(product,price,array) {
     		 var quantity = document.getElementById("i"+product).value;
     		 document.getElementById("i"+product).value = (parseInt(quantity) + 1) + " kg";
-    		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) + 1) * parseFloat(price) / 100) + " €";		 
+    		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) + 1) * parseFloat(price) / 100) + " €";	
+    		 total(array);
     	   } 
     	   
-    	   function minusFunction(product,price) {
+    	   function minusFunction(product,price,array) {
     		 var quantity = document.getElementById("i"+product).value;
       		 document.getElementById("i"+product).value = parseInt(quantity) - 1 + " kg";;
       		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) - 1) * parseFloat(price) / 100) + " €";
+      		 total(array);
    	   		}  
     	   
     	   function total(test) {
-    		   alert(test[0]);
+    		   var total =  0;
+    		   for (var i = 0, len = test.length; i < len; i++) {
+    			   var test1 = parseFloat(document.getElementById("t"+test[i]).innerHTML);
+    			   total = total + test1;
+    			 }
+    		   document.getElementById("total-price").innerHTML = total;
      	   }  
     </script>
     	
