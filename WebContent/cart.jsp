@@ -30,8 +30,6 @@
     }
   }
   
-  
-  
   if (myCookie != null){
   String st =  "";
   CartIntProxy cip = new CartIntProxy();
@@ -130,7 +128,13 @@
      	   }  
     	   
     	   function remove(id) {
-    		   var total    = parseFloat(document.getElementById("total-price").innerHTML);
+    		   var total    = (document.getElementById("total-order").innerHTML);
+    		   total = total.replace("Total ", "");
+    		   total = total.replace("<b>","");
+    		   total = total.replace("</b>","");
+    		   total = total.replace("€","");
+    		   total = total.replace(" ","");
+    		   total = parseFloat(total);
     		   var toRemove = parseFloat(document.getElementById("t"+id).innerHTML);
     		   var test = "";
     		  for(var i = array.length - 1; i >= 0; i--) {
@@ -138,13 +142,12 @@
     	     		test = test + array[i];
     		   }}
     		    this.array = test;
-     		   document.getElementById("total-order").innerHTML = total - toRemove;
+     		   document.getElementById("total-order").innerHTML = "<b>Total " + (total - toRemove) + "  €</b>";
     		   document.getElementById(id).remove();
      	   } 
     	   
     	   function save(cartId) {
-    		    alert (cartId);
-    		    //createCookie("products","",-1);
+    		    document.cookie = "products=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     		    var date = new Date();
     		    date.setTime(date.getTime() + (30*24*60*60*1000));
     	        expires = "; expires=" + date.toUTCString();
@@ -152,22 +155,17 @@
     		    var value = "";
     			  for(var i = array.length - 1; i >= 0; i--) {
     				     var product = array[i];
+    				     product.replace("kg", "").replace(" ","");
     		    		 var quantity = document.getElementById("i"+product).value;
-    		      		 value=value+product+","+quantity+";";
+    		    		 quantity.replace("kg", "").replace(" ","");
+    		      		 value=value+product+","+quantity+".";
     		      		 
     			  }
-    	
+    			alert(value);
     		    document.cookie = name + "=" + value + expires + "; path=/";
     		    window.location = ("saveCart.jsp?cart_id="+cartId);
-    		}
-
-    	   
-    	   
-    	   
-    	   
+    	   }
     </script>
-    	
- 
 </div>
 <c:import url="include/footer.inc.jsp"/>
 
