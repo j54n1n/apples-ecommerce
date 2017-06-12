@@ -6,9 +6,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
  <%  
-   
- 
- 
+   if (!(boolean)session.getAttribute("logged"))
+	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/cart.jsp?message=You are not logged in!"));
+   else
+	   
  
  
  %>

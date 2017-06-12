@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/db/CardService.java=UTF-8
+encoding//src/db/CardServiceLocator.java=UTF-8
+encoding//src/db/CardServiceSoapBindingStub.java=UTF-8
 encoding//src/db/CartService.java=UTF-8
 encoding//src/db/CartServiceLocator.java=UTF-8
 encoding//src/db/CartServiceSoapBindingStub.java=UTF-8
@@ -14,6 +17,8 @@ encoding//src/db/LoginServiceServiceSoapBindingStub.java=UTF-8
 encoding//src/db/ProductService.java=UTF-8
 encoding//src/db/ProductServiceLocator.java=UTF-8
 encoding//src/db/ProductServiceSoapBindingStub.java=UTF-8
+encoding//src/interfaces/CardInt.java=UTF-8
+encoding//src/interfaces/CardObject.java=UTF-8
 encoding//src/interfaces/CartEntryObject.java=UTF-8
 encoding//src/interfaces/CartInt.java=UTF-8
 encoding//src/interfaces/CategoryInt.java=UTF-8
