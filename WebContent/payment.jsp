@@ -45,12 +45,14 @@
    <form action="/doOrder.jsp">
    <select class="selects" name="card">
   <% 
+  if(cos != null && (cos.length > 0)) {
    for (interfaces.CardObject co : cos){
    		if (co == null)
    			break;%>
    	 <option value="<%out.print(co.getLastChars());%>">XXXX XXXX XXXX <%out.print(co.getLastChars());%></option>
    	 <% 
    }
+  }
    %>
   </select>
   <br></br>
