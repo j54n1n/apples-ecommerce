@@ -107,7 +107,7 @@ else if (attribute){ %>
   %>
   <li><a href="<% out.print(request.getContextPath() + "/index.jsp"); %>">Home</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/profile.jsp"); %>">Profile</a></li>
-  <li><a href="#news">Your Orders</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/order.jsp"); %>">Your Orders</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/cart.jsp"); %>">Your Cart</a></li>
   
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><b>Logged as <% out.println(email); %></b></a></li>
@@ -232,7 +232,7 @@ else{
   <li><a href="<% out.print(request.getContextPath() + "/index.jsp"); %>">Home</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/profile.jsp"); %>">Profile</a></li>
   <!-- <li><a href="<% out.print(request.getContextPath() + "/newCreditCard.jsp"); %>">Profile</a></li> -->
-  <li><a href="#news">Your Orders</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/order.jsp"); %>">Your Orders</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/cart.jsp"); %>">Your Cart</a></li>
   
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><b>Logged as <% out.println(email); %></b></a></li>

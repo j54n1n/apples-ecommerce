@@ -22,7 +22,7 @@ public class ProductServiceLocator extends org.apache.axis.client.Service implem
     }
 
     // Use to get a proxy class for ProductPort
-    private java.lang.String ProductPort_address = "http://54.202.224.165:8080/apples-ecommerce-ws/Product";
+    private java.lang.String ProductPort_address = "https://54.202.224.165:8443/apples-ecommerce-ws/Product";
 
     public java.lang.String getProductPortAddress() {
         return ProductPort_address;

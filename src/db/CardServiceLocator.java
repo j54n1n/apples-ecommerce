@@ -22,7 +22,7 @@ public class CardServiceLocator extends org.apache.axis.client.Service implement
     }
 
     // Use to get a proxy class for CardPort
-    private java.lang.String CardPort_address = "http://54.202.224.165:8080/apples-ecommerce-ws/Card";
+    private java.lang.String CardPort_address = "https://54.202.224.165:8443/apples-ecommerce-ws/Card";
 
     public java.lang.String getCardPortAddress() {
         return CardPort_address;

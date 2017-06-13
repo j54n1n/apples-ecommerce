@@ -19,7 +19,7 @@
 	   String card        = request.getParameter("card");
 	   OrderIntProxy oip = new OrderIntProxy();
 	   oip.addOrder(Integer.parseInt(oip.getGUUID()), cart_id, customer_id, Integer.parseInt(card));
-	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/orders.jsp"));  
+	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/order.jsp"));  
 
    }
 	 
