@@ -199,29 +199,17 @@ else{
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		<% 
 	   }
 	   else{
-		   myCookie.setMaxAge(60 * 60 * 24 * 30);
-		   myCookie.setPath("/");
-		   String token =lsi.updateCookieToken(result, myCookie.getValue());
-		   myCookie.setValue(token);
+		  // myCookie.setMaxAge(60 * 60 * 24 * 30);
+		 //  myCookie.setPath("/");
+		   //String token =lsi.updateCookieToken(result, myCookie.getValue());
+		   //myCookie.setValue(token);
 		   CustomerIntProxy cip = new CustomerIntProxy();
 	       session.setAttribute("customer_id", result);
 	       session.setAttribute("logged", true);
-	       session.setAttribute("email",    cip.findByCookie(result, token).getEmail());
+	       session.setAttribute("email",    cip.findByCookie(result, myCookie.getValue()).getEmail());
 	       response.addCookie(myCookie);
 	       
 	       %>

@@ -24,15 +24,14 @@
 	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Your login credentials are incorrect"));
    }
    else{
-	   token = lsi.getCookieToken();
-	   myCookie.setMaxAge(60 * 60 * 24 * 30);
-	   myCookie.setPath("/");
-	   myCookie.setValue(token);
-	   lsi.updateToken(result, token);
+	   //String token1 = lsi.getCookieToken();
+	   //Cookie c = new Cookie("token", token1);
+	   //c.setMaxAge(3600 * 24 * 30);
+	   //c.setPath("/");   
+	   //lsi.updateToken(result, token1);
        session.setAttribute("customer_id", result);
        session.setAttribute("logged", true);
-       session.setAttribute("customer_id", result);
-       response.addCookie(myCookie);
+       //response.addCookie(c);
 	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp"));
    }
      

@@ -37,6 +37,9 @@
   CartIntProxy cip = new CartIntProxy();
   CartEntryObject[] ceos = cip.getCartContent(Integer.parseInt(myCookie.getValue()));
 
+  if (ceos[0] == null)
+	  response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Cart is empty"));
+  
   int c = 0;
   for (CartEntryObject ceo : ceos){
 	  st += ceo.getProduct_id();
