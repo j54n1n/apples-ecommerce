@@ -1,3 +1,4 @@
+<%@page import="interfaces.OrderIntProxy"%>
 <%@page import="helpers.KeyHelper"%>
 <%@page import="interfaces.CartEntryObject"%>
 <%@page import="interfaces.CartIntProxy"%>
@@ -6,9 +7,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
  <%  
-   if (!(boolean)session.getAttribute("logged"))
+   if (!(boolean)session.getAttribute("logged")){
 	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/cart.jsp?message=You are not logged in!"));
-   else
+   }
+   else{
+	   int customer_id   = (int)session.getAttribute("customer_id");   
+	   int cart_id       = (int)request.getParameter("cart_id");
+	   String card        = request.getParameter("card");
+	   OrderIntProxy oip = new OrderIntProxy();
+	   oip.addOrder(Integer.parseInt(oip.getGUUID()), arg1, arg2, arg3);
+   
+   
+   
+   
+   }
 	   
  
  

@@ -42,8 +42,8 @@
   <div class="select-card">
   		Select a Credit Card
   		<br></br>
-
-   <select class="selects" name="cardslist" form="cardsform">
+   <form action="/doOrder.jsp">
+   <select class="selects" name="card">
   <% 
    for (interfaces.CardObject co : cos){
    		if (co == null)
@@ -55,12 +55,14 @@
   </select>
   <br></br>
   <br></br>
-    <button class="selects">Confirm Order</button>
+    <button class="selects" type="submit">Confirm Order</button>
+    </form>
     </div>
 
 		<c:import url="include/footer.inc.jsp" />
 	
 	</div>
+	
 </body>
 
 </html>
