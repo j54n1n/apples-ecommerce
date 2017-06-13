@@ -7,21 +7,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
  <%  
+ 
+ 
+  
    if (!(boolean)session.getAttribute("logged")){
 	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/cart.jsp?message=You are not logged in!"));
    }
    else{
 	   int customer_id   = (int)session.getAttribute("customer_id");   
-	   int cart_id       = (int)request.getParameter("cart_id");
+	   int cart_id       =  Integer.parseInt((String)(session.getAttribute("cart_id")));
 	   String card        = request.getParameter("card");
 	   OrderIntProxy oip = new OrderIntProxy();
-	   oip.addOrder(Integer.parseInt(oip.getGUUID()), arg1, arg2, arg3);
-   
-   
-   
-   
+	   oip.addOrder(Integer.parseInt(oip.getGUUID()), cart_id, customer_id, Integer.parseInt(card));
+	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/orders.jsp"));  
+
    }
-	   
- 
- 
+	 
  %>

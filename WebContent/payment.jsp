@@ -42,10 +42,11 @@
   <div class="select-card">
   		Select a Credit Card
   		<br></br>
-   <form action="/doOrder.jsp">
+   <form action="doOrder.jsp">
    <select class="selects" name="card">
   <% 
   if(cos != null && (cos.length > 0)) {
+  session.setAttribute("cart_id", cart_id);
    for (interfaces.CardObject co : cos){
    		if (co == null)
    			break;%>
