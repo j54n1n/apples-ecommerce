@@ -2190,6 +2190,25 @@ button[class*=btn] {
   color: #4CAF50;
 }
 
+/* Total Price */
+.select-card {
+  width: 80%;
+  padding-top:  30px;
+  padding-right: 50px;
+  text-align: center;
+  font-size: 40px;
+  color: #4CAF50;
+  border: 1;
+}
+
+/* Total Price */
+.selects{
+  width: 40%;
+  padding-top:  50px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
 .total-order {
   width: 100%;
   padding-top: 50px;  padding-bottom: 50px;
@@ -2206,6 +2225,12 @@ btn-order {
   color: #4CAF50;
 }
 
+btn-order2 {	
+  width: 10%;
+  text-align: rigth;
+  font-size: 50px;
+  color: #4CAF50;
+}
 
 
 /* Responsive */

@@ -116,7 +116,7 @@
   }
   %>
 			<div class="total-order" id="total-order">Total:</div>
-			<button class="btn-order1" type="button" onclick="confirmOrder('<%out.print(myCookie.getValue());%>')">Confirm Order</button>
+			<button class="btn-order" type="button" onclick="confirmOrder('<%out.print(myCookie.getValue());%>')">Confirm Order</button>
 			<button class="btn-order" type="button"
 				onclick="save('<%out.print(myCookie.getValue());%>')">Save
 				Cart</button>
