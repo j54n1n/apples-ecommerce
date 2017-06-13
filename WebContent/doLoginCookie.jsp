@@ -31,6 +31,7 @@
 	   lsi.updateToken(result, token);
        session.setAttribute("customer_id", result);
        session.setAttribute("logged", true);
+       session.setAttribute("customer_id", result);
        response.addCookie(myCookie);
 	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp"));
    }

@@ -22,7 +22,7 @@ public class CartServiceLocator extends org.apache.axis.client.Service implement
     }
 
     // Use to get a proxy class for CartPort
-    private java.lang.String CartPort_address = "http://localhost:8080/apples-ecommerce-ws/Cart";
+    private java.lang.String CartPort_address = "http://54.202.224.165:8080/apples-ecommerce-ws/Cart";
 
     public java.lang.String getCartPortAddress() {
         return CartPort_address;
