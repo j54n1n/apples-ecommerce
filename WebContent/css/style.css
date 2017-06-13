@@ -6,7 +6,7 @@ del, dfn, em, font, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 dl, dt, dd, ol, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td
+ caption, tbody, tfoot, thead, tr
 {
     margin: 0;
     padding: 0;
@@ -15,6 +15,25 @@ table, caption, tbody, tfoot, thead, tr, th, td
     vertical-align: baseline;
     
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+    margin-left: 280px;
+}
+
+td, th {
+    border: 1px solid #4CAF50;
+    text-align: center;
+   
+}
+
+tr:nth-child(even) {
+    background-color: #4CAF50;
+}
+
+
 
 input, select
 {
@@ -2200,6 +2219,18 @@ button[class*=btn] {
   color: #4CAF50;
   border: 1;
 }
+
+/* Total Price */
+.titleHeader {
+  width: 80%;
+  margin-left: 280px;
+  margin-bottom: 30px;
+  font-size: 40px;
+  color: #4CAF50;
+  border: 1;
+}
+
+
 
 /* Total Price */
 .selects{
