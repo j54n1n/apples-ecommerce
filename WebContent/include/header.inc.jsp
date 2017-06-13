@@ -28,7 +28,7 @@ catch (Exception e){
 
 if (!attribute && myCookie == null){ %>
 <div id="top"><ul>
-  <li><a href="#home">Home</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/index.jsp"); %>">Home</a></li>
   <li><a href="#news">News</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/cart.jsp"); %>">Your Cart</a></li>
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
@@ -105,7 +105,8 @@ else if (attribute){ %>
   <% 
   String email = (String)session.getAttribute("email");
   %>
-  <li><a href="#home">Profile</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/index.jsp"); %>">Home</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/newCreditCard.jsp"); %>">Profile</a></li>
   <li><a href="#news">Your Orders</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/cart.jsp"); %>">Your Cart</a></li>
   
@@ -123,7 +124,7 @@ else{
 		%>
 		
 	<div id="top"><ul>
-  <li><a href="#home">Home</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/index.jsp"); %>">Home</a></li>
   <li><a href="#news">News</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/cart.jsp"); %>">Your Cart</a></li>
   <li style="float:right"><a class="active" href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
@@ -228,7 +229,8 @@ else{
   <% 
   String email = (String)session.getAttribute("email");
   %>
-  <li><a href="#home">Profile</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/index.jsp"); %>">Home</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/newCreditCard.jsp"); %>">Profile</a></li>
   <li><a href="#news">Your Orders</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/cart.jsp"); %>">Your Cart</a></li>
   

@@ -16,7 +16,7 @@
 
 <c:import url="include/header.inc.jsp"/>
 <c:import url="include/navigation.inc.jsp"/>
-   <form class="modal-content2 animate" action="/doInsertCard.jsp">
+   <form class="modal-content2 animate" action="doInsertCard.jsp">
      <label><b>Add Credit Card</b></label>
      <br></br><br></br>
      <label for="owner">Owner</label>
