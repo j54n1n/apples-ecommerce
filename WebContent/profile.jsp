@@ -41,10 +41,11 @@ if (cookies != null) {
 if(myCookie == null) {
 	response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp"));
 }
+int customer_id = (int)session.getAttribute("customer_id");
 CustomerIntProxy cip = new CustomerIntProxy();
 CustomerObject co = null;
 try {
-	co = cip.findByCookie((int)session.getAttribute("customer_id"), myCookie.getValue());
+	co = cip.findByCookie(customer_id, myCookie.getValue());
 	if(co == null) {
 		response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp"));
 	}
