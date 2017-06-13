@@ -106,7 +106,7 @@ else if (attribute){ %>
   String email = (String)session.getAttribute("email");
   %>
   <li><a href="<% out.print(request.getContextPath() + "/index.jsp"); %>">Home</a></li>
-  <li><a href="<% out.print(request.getContextPath() + "/newCreditCard.jsp"); %>">Profile</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/profile.jsp"); %>">Profile</a></li>
   <li><a href="#news">Your Orders</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/cart.jsp"); %>">Your Cart</a></li>
   
@@ -230,7 +230,8 @@ else{
   String email = (String)session.getAttribute("email");
   %>
   <li><a href="<% out.print(request.getContextPath() + "/index.jsp"); %>">Home</a></li>
-  <li><a href="<% out.print(request.getContextPath() + "/newCreditCard.jsp"); %>">Profile</a></li>
+  <li><a href="<% out.print(request.getContextPath() + "/profile.jsp"); %>">Profile</a></li>
+  <!-- <li><a href="<% out.print(request.getContextPath() + "/newCreditCard.jsp"); %>">Profile</a></li> -->
   <li><a href="#news">Your Orders</a></li>
   <li><a href="<% out.print(request.getContextPath() + "/cart.jsp"); %>">Your Cart</a></li>
   
