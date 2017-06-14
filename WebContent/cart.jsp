@@ -32,6 +32,13 @@
     }
   }
   
+ 
+  if (myCookie == null)
+	  response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Cart is empty"));
+  else if (myCookie.getMaxAge() == -1)
+	  response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Cart is empty"));
+  
+  
   if (myCookie != null){
   String st =  "";
   CartIntProxy cip = new CartIntProxy();
@@ -197,7 +204,6 @@
     		      		 value=value+product+","+quantity+".";
     		      		 
     			  }
-    			alert(value);
     		    document.cookie = name + "=" + value + expires + "; path=/";
     		    window.location = ("saveCart.jsp?cart_id="+cartId);
     	   }
@@ -222,7 +228,6 @@
        		      		 value=value+product+","+quantity+".";
        		      		 
        			  }
-       			alert(value);
        		    document.cookie = name + "=" + value + expires + "; path=/";
        		    window.location = ("payment.jsp?cart_id="+cartId);
     		   }
