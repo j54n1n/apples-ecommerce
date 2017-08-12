@@ -205,7 +205,7 @@
    function addCartFunction(title,product,category) {
 	   var quantity = document.getElementById(title).innerHTML;
 	   quantity = quantity.replace(" kg","");
-	   window.location.replace("https://127.0.0.1:8443/apples-ecommerce/addToChart.jsp?quantity="+quantity+"&category_id="+category+"&product_id="+product);
+	   window.location.replace("https://54.186.200.241:8443/apples-ecommerce/addToChart.jsp?quantity="+quantity+"&category_id="+category+"&product_id="+product);
    } 
   </script>
 	

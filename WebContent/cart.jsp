@@ -35,8 +35,6 @@
  
   if (myCookie == null)
 	  response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Cart is empty"));
-  else if (myCookie.getMaxAge() == -1)
-	  response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Cart is empty"));
   
   
   if (myCookie != null){
@@ -44,7 +42,7 @@
   CartIntProxy cip = new CartIntProxy();
   CartEntryObject[] ceos = cip.getCartContent(Integer.parseInt(myCookie.getValue()));
 
-  if (ceos[0] == null)
+  if (ceos == null)
 	  response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Cart is empty"));
   
   int c = 0;

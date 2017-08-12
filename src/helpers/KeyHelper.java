@@ -24,7 +24,7 @@ public class KeyHelper {
 	
 	public String encryptString(String toEncrpy){
 		byte[] pBytes = Base64.decode(publicKey);
-		String result = "";
+		String result = "";        
 	    X509EncodedKeySpec X509publicKey = new X509EncodedKeySpec(pBytes);
 
 	    try {
