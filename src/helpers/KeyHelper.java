@@ -20,7 +20,7 @@ public class KeyHelper {
 
 	public KeyHelper(String publicKey){
 		this.publicKey = publicKey;
-	}
+	} 
 	
 	public String encryptString(String toEncrpy){
 		byte[] pBytes = Base64.decode(publicKey);
