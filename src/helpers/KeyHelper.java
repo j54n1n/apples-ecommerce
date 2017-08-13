@@ -27,7 +27,7 @@ public class KeyHelper {
 		String result = "";        
 	    X509EncodedKeySpec X509publicKey = new X509EncodedKeySpec(pBytes);
      
-	    try {
+	    try   {
 			KeyFactory kf = KeyFactory.getInstance("RSA");
 		    PublicKey pKey = kf.generatePublic(X509publicKey);
 		    Cipher cipher = Cipher.getInstance("RSA");   
