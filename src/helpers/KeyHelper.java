@@ -26,7 +26,7 @@ public class KeyHelper {
 		byte[] pBytes   = Base64.decode(publicKey);
 		String result = "";        
 	    X509EncodedKeySpec X509publicKey = new X509EncodedKeySpec(pBytes);
-     
+         
 	    try   {
 			KeyFactory kf = KeyFactory.getInstance("RSA");
 		    PublicKey pKey = kf.generatePublic(X509publicKey);
