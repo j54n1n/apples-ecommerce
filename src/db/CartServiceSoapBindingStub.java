@@ -17,7 +17,7 @@ public class CartServiceSoapBindingStub extends org.apache.axis.client.Stub impl
 
     static {
         _operations = new org.apache.axis.description.OperationDesc[4];
-         _initOperationDesc1();
+         _initOperationDesc1();     
     }
 
     private static void _initOperationDesc1(){
