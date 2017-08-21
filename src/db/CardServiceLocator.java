@@ -11,7 +11,7 @@ public class CardServiceLocator extends org.apache.axis.client.Service implement
 
     public CardServiceLocator() {
     }
-
+     
 
     public CardServiceLocator(org.apache.axis.EngineConfiguration config) {
         super(config);
