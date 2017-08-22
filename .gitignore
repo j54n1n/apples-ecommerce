@@ -31,10 +31,10 @@ nb-configuration.xml
 # Intellij
 .idea/
 *.iml
-*.iws
+*.iwse
 
 # Mac
-.DS_Store
+.DS_Store 
 
 # Maven
 log/
