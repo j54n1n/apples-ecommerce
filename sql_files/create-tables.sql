@@ -23,7 +23,7 @@ CREATE TABLE category
   CONSTRAINT category_pkey PRIMARY KEY (category_id) --trivial primary key
 );
 
-CREATE TABLE products
+CREATE TcccABLE products
 (
   product_id serial NOT NULL,
   category_id integer NOT NULL,
