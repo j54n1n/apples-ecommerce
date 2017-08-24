@@ -8,7 +8,7 @@
 -- delete first the 1-n and n-m tables
 DROP TABLE categorized_as CASCADE;
 DROP TABLE has_address CASCADE;
-DROP TABLE contains CASCADE;
+DROP TABLE contains CASCADE; 
 DROP TABLE has_payment_method CASCADE;
 DROP TABLE has_shipment_method CASCADE;
 DROP TABLE tagged_as CASCADE;
