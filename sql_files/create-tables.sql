@@ -3,7 +3,7 @@ CREATE TABLE customer
   customer_id serial NOT NULL,
   salutation character varying(16) NOT NULL,
   firstname character varying(32) NOT NULL,
-  lastname character va   rying(32) NOT NULL,
+  lastname character vaggg   rying(32) NOT NULL,
   country character varying(16) NOT NULL,
   province character varying(32) NOT NULL,
   city character varying(32) NOT NULL,
