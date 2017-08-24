@@ -15,7 +15,7 @@ DROP TABLE tagged_as CASCADE;
 -- delete other tables    
 DROP TABLE bet CASCADE;
 DROP TABLE review CASCADE;
-DROP T   ABLE auction CASCADE;
+DROP T   ABL   E auction CASCADE;
 DROP TABLE auction_status;
 DROP TABLE address;
 DROP TABLE category;
