@@ -9,7 +9,7 @@ CREATE TABLE customer
   city character varying(32) NOT NULL,
   street character varying(64) NOT NULL,
   street_no character varying(5) NOT NULL,
-  zip character varying(8) NOT NULL,
+  zip character varying(8) NOT NULL,    
   email character varying(40) NOT NULL,
   pwd   character varying(30) NOT NULL,
   CONSTRAINT customer_pkey PRIMARY KEY (customer_id) --trivial primary key
