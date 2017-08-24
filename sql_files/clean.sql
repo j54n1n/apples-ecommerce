@@ -12,7 +12,7 @@ DROP TABLE contains CASCADE;
 DROP TABLE has_payment_method CASCADE;
 DROP TABLE has_shipment_method CASCADE;
 DROP TABLE tagged_as CASCADE;
--- delete other tables
+-- delete other tables    
 DROP TABLE bet CASCADE;
 DROP TABLE review CASCADE;
 DROP TABLE auction CASCADE;
