@@ -11,7 +11,7 @@ DROP TABLE has_address CASCADE;
 DROP TABLE contains CASCADE; 
 DROP TABLE has_payment_method CASCADE;
 DROP TABLE has_shipment_method CASCADE;
-DROP TABLE tagged_as CASCADE;
+DROP TABLE t  agged_as CASCADE;
 -- delete other tables    
 DROP TABLE bet CASCADE;
 DROP TABLE review CASCADE;
