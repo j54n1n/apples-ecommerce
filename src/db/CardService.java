@@ -12,5 +12,5 @@ public interface CardService extends javax.xml.rpc.Service {
 
     public interfaces.CardInt getCardPort() throws javax.xml.rpc.ServiceException;
     
-    public interfaces.CardInt getCardPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+    public interfaces.CardInt getCardPort(java.net.URL   portAddress) throws javax.xml.rpc.ServiceException;
 }
