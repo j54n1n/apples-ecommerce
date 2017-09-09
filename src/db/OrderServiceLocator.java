@@ -22,7 +22,7 @@ public class OrderServiceLocator extends org.apache.axis.client.Service implemen
     }
 
     // Use to get a proxy class for OrderPort
-    private java.lang.String OrderPort_address = "https://54.202.224.165:8443/apples-ecommerce-ws/Order";
+    private java.lang.String OrderPort_address = "http://34.211.54.69:8081/apples-ecommerce-ws/Order";
 
     public java.lang.String getOrderPortAddress() {
         return OrderPort_address;
