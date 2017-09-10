@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" rev="stylesheet" type="text/css"
-	href="css/style.css" media="screen" />
+	href="css/header.css" media="screen" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 
