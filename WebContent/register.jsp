@@ -47,9 +47,9 @@
 							for="homepage">Website: </label> <input type="text"
 							value="${param.homepage}" id="homepage" name="homepage" /> <input
 							type="submit" value="Register" name="register" />
-					</form>
-
-					<label for="phonesignup"> Phone *</label>
+							
+							
+												<label for="phonesignup"> Phone *</label>
 					<input id="phonesignup" name="phonesignup" required="required"
 						type="tel" placeholder="3331234555" />
 
@@ -69,13 +69,16 @@
 					<input id="zipCode" name="zipCode" required="required" type="text"
 						pattern="[0-9]{5}" placeholder="39100" />
 
-					<label for="paymentMode"> Payment Mode *</label>
-					<select id="paymentMode" name="paymentMode" required="required">
+					<label for="deliverymethod"> Delivery Method *</label>
+					<select id="deliverymethod" name="deliverymethod" required="required">
 
-						<option value="cash"> Cash </option>
-						<option value="paypal"> PayPal </option>
-						<option value="creditCard"> Credit Card </option>
+						<option value="standard"> Standard </option>
+						<option value="fast delivery"> Fast Delivery </option>
+						<option value="fast tracked delivery"> Fast Tracked Delivery </option>
 					</select>
+							
+					</form>
+
 
 				</c:otherwise>
 			</c:choose>
