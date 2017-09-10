@@ -16,25 +16,24 @@
     }*/
    
    String name = request.getParameter("name");
-   String salutation = request.getParameter("salutation");
-   String sname = request.getParameter("sname");
-   String street = request.getParameter("street");
-   String province = request.getParameter("province");
-   String zip = request.getParameter("zip");
-   String uname = request.getParameter("uname");
-   String country = request.getParameter("country");
-   String psw = request.getParameter("country");
+   String surname = request.getParameter("surname");
    String email = request.getParameter("email");
+   String phonesignup = request.getParameter("phonesignup");
+   String organization = request.getParameter("organization");
+   String address = request.getParameter("address");
    String city = request.getParameter("city");
-   String pwd = request.getParameter("psw");
-   
+   String zipCode = request.getParameter("zipCode");
+   String deliverymethod = request.getParameter("deliverymethod");
+   String owner = request.getParameter("owner");
+   String cvv = request.getParameter("cvv");
+   String password = request.getParameter("password");
+   String cardNumber = request.getParameter("cardNumber");
+
+      
    LoginServiceIntProxy lsi = new LoginServiceIntProxy();
    String publicK = lsi.getPublicKey();
    KeyHelper kh = new KeyHelper(publicK);
-   pwd = kh.encryptString(pwd);
-   
-   
-   boolean ct = lsi.createNewUser(salutation, name, sname, country, province, city, street, "", zip, 0, email, pwd);
+   boolean ct = lsi.createNewUser(name, surname, email, Integer.parseInt(phonesignup), organization, city, address, zipCode);
    if (ct) {
 	   int result = lsi.login(email, pwd);
        String token = lsi.getCookieToken();
