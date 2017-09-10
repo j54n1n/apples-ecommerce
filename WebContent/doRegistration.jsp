@@ -42,6 +42,9 @@
 	   cToken.setMaxAge(60*60*30);
 	   response.addCookie(cToken);
 	   lsi.insertNewToken(result, token);
+	   
+       session.setAttribute("name", email);
+
        session.setAttribute("email", email);
        session.setAttribute("logged", true);
        session.setAttribute("customer_id", result);
