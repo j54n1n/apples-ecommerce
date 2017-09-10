@@ -79,12 +79,7 @@
 						<option value="fast tracked delivery"> Fast Tracked Delivery </option>
 					</select>
 							
-														<input
-							type="submit" value="Register" name="register" />
 							
-							
-							
-							 
 							
 							
 							
@@ -128,6 +123,10 @@
 							
 							
 							
+							
+														<input
+							type="submit" value="Register" name="register" />																												
+																			
 					</form>
 
 
