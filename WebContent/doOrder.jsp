@@ -13,14 +13,9 @@
  
 
  CartIntProxy cip = new CartIntProxy();
- 
-  
-	   int customer_id   = (int)session.getAttribute("customer_id");   
-	   int cart_id       =  Integer.parseInt((String)(session.getAttribute("cart_id")));
-	   String card        = request.getParameter("card");
-	   
-	   CartEntryObject[] c = cip.getCartContent(cart_id);
-	   
+	   String cart_id       =  (String)(request.getParameter("cart_id"));	  
+	   System.out.println(cart_id);
+	   CartEntryObject[] c = cip.getCartContent(Integer.parseInt(cart_id));
 	   for (CartEntryObject obj : c) {
 		   
 		   int quantity = obj.getQuantity();
@@ -33,9 +28,9 @@
 			   
 		   }
 
-	   OrderIntProxy oip = new OrderIntProxy();
-	   oip.addOrder(Integer.parseInt(oip.getGUUID()), cart_id, customer_id, Integer.parseInt(card));
-	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/order.jsp"));  
+	   //OrderIntProxy oip = new OrderIntProxy();
+	   //oip.addOrder(Integer.parseInt(oip.getGUUID()), cart_id, customer_id, Integer.parseInt(card));
+	   //response.sendRedirect(String.format("%s%s", request.getContextPath(), "/order.jsp"));  
 
    }
 	 

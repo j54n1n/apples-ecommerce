@@ -208,11 +208,7 @@
     	   
     	   
     	   function confirmOrder(cartId) {
-    		   var id=document.getElementById("attribute").innerHTML;
-    		   if (id==0)
-    			   window.location = ("cart.jsp?message=You are not LOGGED!");
-    		   else{
-    			   document.cookie = "products=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    			document.cookie = "products=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
        		    var date = new Date();
        		    date.setTime(date.getTime() + (30*24*60*60*1000));
        	        expires = "; expires=" + date.toUTCString();
@@ -227,8 +223,8 @@
        		      		 
        			  }
        		    document.cookie = name + "=" + value + expires + "; path=/";
-       		    window.location = ("payment.jsp?cart_id="+cartId);
-    		   }
+       		    window.location = ("doOrder.jsp?cart_id="+cartId);
+    		   
    	   }
     	 
     	   
