@@ -78,7 +78,7 @@
 						<option value="fast delivery"> Fast Delivery </option>
 						<option value="fast tracked delivery"> Fast Tracked Delivery </option>
 					</select>
-							
+							 
 														<input
 							type="submit" value="Register" name="register" />
 							
