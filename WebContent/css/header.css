@@ -73,10 +73,12 @@ input[type="checkbox"]
 {
     vertical-align: bottom;
 }
-input[type="text"]
+input
 {
    size:1500px;
 }
+
+
 
 button, input, select, textarea
 {
@@ -282,7 +284,7 @@ p.error
 
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
