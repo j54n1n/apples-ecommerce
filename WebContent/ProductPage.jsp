@@ -55,7 +55,7 @@
 						name="<%out.print(product.getPrice());%>">-</button>
 					<br></br>
 					<button class="cart-btn" type="button"
-						onclick=""
+						onclick="addCartFunction('<%=product.getTitle()%>',<%=product.getProduct_id()%>,<%=product.getCategory_id()%>)"
 						name="<%out.print(product.getPrice());%>">Add to Cart</button>
 					<br></br>
 
@@ -65,11 +65,6 @@
 					id="<%out.print("t"+product.getProduct_id());%>">
 					<%out.print(total + " €"); %>
 				</div>
-
-				
-			
-
-
 
 			</div>
 			
@@ -147,6 +142,17 @@
        		    window.location = ("payment.jsp?cart_id="+cartId);
     		   }
    	   }
+    	   
+    	
+    	   function addCartFunction(title,product,category) {
+    			 var quantity = document.getElementById("i"+product).value;
+        		 var quantityInt = quantity.replace(" kg", "");
+    			 var url = (window.location.href);
+    		     var n = url.indexOf("GridPage");
+    		     url = url.substring(0, n);
+    		     window.location.replace(url+"addToChart.jsp?quantity="+quantityInt+"&category_id="+category+"&product_id="+product);
+    	   } 
+    	 
     	 
     	   
     </script>

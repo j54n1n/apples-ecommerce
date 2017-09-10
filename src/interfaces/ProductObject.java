@@ -24,6 +24,8 @@ public class ProductObject  implements java.io.Serializable {
 
     private java.lang.String imgLink;
 
+    private int quantity;
+
     public ProductObject() {
     }
 
@@ -35,7 +37,8 @@ public class ProductObject  implements java.io.Serializable {
            java.lang.String description,
            int price,
            int price_type,
-           java.lang.String imgLink) {
+           java.lang.String imgLink,
+           int quantity) {
            this.product_id = product_id;
            this.category_id = category_id;
            this.title = title;
@@ -44,6 +47,7 @@ public class ProductObject  implements java.io.Serializable {
            this.price = price;
            this.price_type = price_type;
            this.imgLink = imgLink;
+           this.quantity = quantity;
     }
 
 
@@ -206,6 +210,26 @@ public class ProductObject  implements java.io.Serializable {
         this.imgLink = imgLink;
     }
 
+
+    /**
+     * Gets the quantity value for this ProductObject.
+     * 
+     * @return quantity
+     */
+    public int getQuantity() {
+        return quantity;
+    }
+
+
+    /**
+     * Sets the quantity value for this ProductObject.
+     * 
+     * @param quantity
+     */
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof ProductObject)) return false;
@@ -233,7 +257,8 @@ public class ProductObject  implements java.io.Serializable {
             this.price_type == other.getPrice_type() &&
             ((this.imgLink==null && other.getImgLink()==null) || 
              (this.imgLink!=null &&
-              this.imgLink.equals(other.getImgLink())));
+              this.imgLink.equals(other.getImgLink()))) &&
+            this.quantity == other.getQuantity();
         __equalsCalc = null;
         return _equals;
     }
@@ -261,6 +286,7 @@ public class ProductObject  implements java.io.Serializable {
         if (getImgLink() != null) {
             _hashCode += getImgLink().hashCode();
         }
+        _hashCode += getQuantity();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -321,6 +347,12 @@ public class ProductObject  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("", "imgLink"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("quantity");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "quantity"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

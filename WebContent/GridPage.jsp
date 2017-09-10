@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" rev="stylesheet" type="text/css"
-	href="css/style.css" media="screen" />
+	href="css/header.css" media="screen" />
 <link rel="stylesheet" rev="stylesheet" type="text/css"
 	href="css/jquery-ui.css" media="screen" />
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -22,27 +22,7 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-	$( function() {
-		$( document ).tooltip({
-			items: "img, [data-geo], [title]",
-			 position: {
-	              my: "right bottom+50"
-	          },
-	          tooltipClass: "entry-tooltip-positioner",
-	          track: true,
-			content: function() {
-				var element = $( this );
-				if ( element.is( "[data-geo]" ) ) {
-					var title = element.attr( "title" );
-					var summary = element.attr( "summary" );
-					var description = element.attr( "description" );
-					return "<div class='cbp-pgoptions2'><h1>"+title+" </h1> <br> <h2> "+summary+" </h2><br><h3>"+description+" </h3>";
-				}
-			}
-		});
-	} );
-</script>	
+
 </head>
 <body>
 
@@ -92,10 +72,12 @@
 					<div class="cbp-pgcontent">
 						<div class="cbp-pgitem">
 							<div class="cbp-pgitem-flip">
+							<a href="ProductPage.jsp?productId=<%out.print(p.getProduct_id());%>">
 								<img data-geo="" class="test" id="<%out.print(p.getProduct_id());%>"summary="<%out.print(p.getSummary());%>"
 									title="<%out.print(p.getTitle());%>"
 									description="<%out.print(p.getDescription());%>"
 									src=<%out.print(p.getImgLink());%> />
+									</a>
 							</div>
 						</div>
 						<!-- /cbp-pgitem -->

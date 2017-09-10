@@ -2,6 +2,7 @@
 <%@page import="interfaces.CartIntProxy"%>
 <%@page import="interfaces.CustomerObject"%>
 <%@page import="interfaces.CustomerIntProxy"%>
+<%@page import="interfaces.ProductIntProxy"%>
 <%@page import="java.text.*"%>
 <%@page import="java.util.*"%>
 
@@ -14,7 +15,7 @@
    int quantity = Integer.parseInt(request.getParameter("quantity"));
    int category_id = Integer.parseInt(request.getParameter("category_id"));
    CartIntProxy cip = new CartIntProxy();
-   
+   ProductIntProxy pip  = new ProductIntProxy();
 
 
    Cookie[] cookies = request.getCookies();
