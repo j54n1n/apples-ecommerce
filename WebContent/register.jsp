@@ -34,16 +34,13 @@
 					<c:out value="${param.success}"></c:out>
 
 					<form action="doRegistration.jsp" method="POST">
-						<label for="name">Name*: </label> <input type="text" value=""
+						<label for="name">Name *: </label> <input type="text" value=""
 							id="name" name="name" required="required" placeholder="Mario" />
 
-						<label for="surname">Surname*: </label> <input type="text" value=""
-							id="surname" name="surname" required="required"
-							placeholder="Rossi" /><br /> <label for="email">Email:
-						</label> 
-						
-						<label for="email">Email*: </label> 
-						<input type="text" value="" id="email" name="email"
+						<label for="surname">Surname *: </label> <input type="text"
+							value="" id="surname" name="surname" required="required"
+							placeholder="Rossi" /><br /> <label for="email">Email*:
+						</label> <input type="text" value="" id="email" name="email"
 							required="required"
 							pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
 							placeholder="mario.rossi@gmail.com" /><br /> <label
@@ -52,6 +49,33 @@
 							type="submit" value="Register" name="register" />
 					</form>
 
+					<label for="phonesignup"> Phone *</label>
+					<input id="phonesignup" name="phonesignup" required="required"
+						type="tel" placeholder="3331234555" />
+
+					<label for="organization"> Organazation</label>
+					<input id="organization" name="organization" placeholder="Unibz" />
+
+					<label for="address"> Address *</label>
+					<input id="address" name="address" required="required"
+						placeholder="Via druso 45" />
+
+
+					<label for="city"> City *</label>
+					<input id="city" name="city" required="required"
+						placeholder="Bolzano" />
+
+					<Label for="zipCode"> ZIP Code * </Label>
+					<input id="zipCode" name="zipCode" required="required" type="text"
+						pattern="[0-9]{5}" placeholder="39100" />
+
+					<label for="paymentMode"> Payment Mode *</label>
+					<select id="paymentMode" name="paymentMode" required="required">
+
+						<option value="cash"> Cash </option>
+						<option value="paypal"> PayPal </option>
+						<option value="creditCard"> Credit Card </option>
+					</select>
 
 				</c:otherwise>
 			</c:choose>
