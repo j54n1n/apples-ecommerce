@@ -85,12 +85,12 @@
 							
 							
 							     <label><br>Credit Card Information </br></label>
-     <label for="owner">Owner</label>
-     <input type="text" name="owner">
-                <label for="cvv">CVV</label>
-                <input type="password" name="ccv" maxlength="3">
-                <label for="cardNumber">Card Number</label>
-                <input type="text" name="cardNumber" maxlength="16">
+     <label for="owner">Owner *</label>
+     <input type="text" required="required" name="owner">
+                <label for="cvv">CVV *</label>
+                <input type="password" required="required" name="ccv" maxlength="3">
+                <label for="cardNumber">Card Number *</label>
+                <input type="text" required="required" name="cardNumber" maxlength="16">
                 <label>Expiration Date</label>
                 <select name="month">
                     <option value="01">January</option>
@@ -121,12 +121,8 @@
                 <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
 							
 							
-							
-							
-							
-														<input
-							type="submit" value="Register" name="register" />																												
-																			
+													
+																									
 					</form>
 
 
