@@ -81,10 +81,10 @@
 							
 							
 							
+							     <br></br><br></br>
 							
 							
-							     <label><b>Add Credit Card</b></label>
-     <br></br><br></br>
+							     <label><br>Credit Card Information </br></label>
      <label for="owner">Owner</label>
      <input type="text" name="owner">
                 <label for="cvv">CVV</label>
