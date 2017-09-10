@@ -8,7 +8,7 @@
 package interfaces;
 
 public interface LoginServiceInt extends java.rmi.Remote {
-    public boolean createNewUser(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2, java.lang.String arg3, java.lang.String arg4, java.lang.String arg5, java.lang.String arg6, java.lang.String arg7, java.lang.String arg8, int arg9, java.lang.String arg10, java.lang.String arg11) throws java.rmi.RemoteException;
+    public boolean createNewUser(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2, int arg3, java.lang.String arg4, java.lang.String arg5, java.lang.String arg6, java.lang.String arg7) throws java.rmi.RemoteException;
     public int login(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
     public boolean insertNewToken(int arg0, java.lang.String arg1) throws java.rmi.RemoteException;
     public java.lang.String getPublicKey() throws java.rmi.RemoteException;
