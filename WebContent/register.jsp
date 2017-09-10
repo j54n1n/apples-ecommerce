@@ -39,34 +39,36 @@
 
 						<label for="surname">Surname *: </label> <input type="text"
 							value="" id="surname" name="surname" required="required"
-							placeholder="Rossi" /><br /> <label for="email">Email*:
+							placeholder="Rossi" /><br />
+							
+							 <label for="email">Email*:
 						</label> <input type="text" value="" id="email" name="email"
 							required="required"
 							pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
-							placeholder="mario.rossi@gmail.com" /><br /> <label
-							for="homepage">Website: </label> <input type="text"
-							value="${param.homepage}" id="homepage" name="homepage" /> <input
-							type="submit" value="Register" name="register" />
+							placeholder="mario.rossi@gmail.com" /><br /> 
 							
 							
-												<label for="phonesignup"> Phone *</label>
+							
+							
+							
+					<label for="phonesignup"> Phone *</label>
 					<input id="phonesignup" name="phonesignup" required="required"
 						type="tel" placeholder="3331234555" />
 
 					<label for="organization"> Organazation</label>
-					<input id="organization" name="organization" placeholder="Unibz" />
+					<input id="organization" type="text" name="organization" placeholder="Unibz" />
 
 					<label for="address"> Address *</label>
-					<input id="address" name="address" required="required"
+					<input id="address" name="address" required="required" type="text"
 						placeholder="Via druso 45" />
 
 
 					<label for="city"> City *</label>
-					<input id="city" name="city" required="required"
+					<input id="city" name="city" type="text" required="required"
 						placeholder="Bolzano" />
 
 					<Label for="zipCode"> ZIP Code * </Label>
-					<input id="zipCode" name="zipCode" required="required" type="text"
+					<input id="zipCode" name="zipCode" required="required" type="number"
 						pattern="[0-9]{5}" placeholder="39100" />
 
 					<label for="deliverymethod"> Delivery Method *</label>
@@ -76,6 +78,9 @@
 						<option value="fast delivery"> Fast Delivery </option>
 						<option value="fast tracked delivery"> Fast Tracked Delivery </option>
 					</select>
+							
+														<input
+							type="submit" value="Register" name="register" />
 							
 					</form>
 
