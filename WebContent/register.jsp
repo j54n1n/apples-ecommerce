@@ -55,7 +55,7 @@
 					<input id="phonesignup" name="phonesignup" required="required"
 						type="tel" placeholder="3331234555" />
 
-					<label for="organization"> Organazation</label>
+					<label for="organization"> Organization</label>
 					<input id="organization" type="text" name="organization" placeholder="Unibz" />
 
 					<label for="address"> Address *</label>
