@@ -153,9 +153,11 @@
     			 if (this.array == null)
         			 this.array=array1;
     		 var quantity = document.getElementById("i"+product).value;
+    		 var quantityInt = quantity.replace(" kg", "");
+    		 if (parseInt(quantityInt) > 0){
       		 document.getElementById("i"+product).value = parseInt(quantity) - 1 + " kg";;
       		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) - 1) * parseFloat(price) / 100) + " €";
-      		 total(this.array);
+      		 total(this.array);}
    	   		}  
     	   
     	   function total(array) {

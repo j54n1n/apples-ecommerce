@@ -37,11 +37,12 @@
 				   ceos[i] = null;
 		   }
 	   }
+	   }
    
 	   for (int i = 0; i < ceos.length; i++){
 		   if (ceos[i] != null)
 			   cip.updateCart(Integer.parseInt(cart_id), ceos[i].getProduct_id(), 0);
-	   }}
+	   }
 	   myCookie.setMaxAge(0);
 	   myCookie.setValue("");
 	   response.addCookie(myCookie);
