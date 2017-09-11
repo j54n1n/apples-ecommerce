@@ -44,16 +44,16 @@ public class CustomerIntProxy implements interfaces.CustomerInt {
     return customerInt;
   }
   
-  public interfaces.CustomerObject find(int arg0, java.lang.String arg1) throws java.rmi.RemoteException{
-    if (customerInt == null)
-      _initCustomerIntProxy();
-    return customerInt.find(arg0, arg1);
-  }
-  
   public interfaces.CustomerObject findByCookie(int arg0, java.lang.String arg1) throws java.rmi.RemoteException{
     if (customerInt == null)
       _initCustomerIntProxy();
     return customerInt.findByCookie(arg0, arg1);
+  }
+  
+  public int findByEmail(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (customerInt == null)
+      _initCustomerIntProxy();
+    return customerInt.findByEmail(arg0);
   }
   
   public boolean delete() throws java.rmi.RemoteException{

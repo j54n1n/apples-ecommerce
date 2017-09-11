@@ -8,7 +8,7 @@
 package interfaces;
 
 public class CardObject  implements java.io.Serializable {
-    private int customer_id;
+    private java.lang.String email;
 
     private int month;
 
@@ -28,7 +28,7 @@ public class CardObject  implements java.io.Serializable {
     }
 
     public CardObject(
-           int customer_id,
+           java.lang.String email,
            int month,
            int year,
            java.lang.String key,
@@ -36,7 +36,7 @@ public class CardObject  implements java.io.Serializable {
            java.lang.String vvc,
            java.lang.String cName,
            int lastChars) {
-           this.customer_id = customer_id;
+           this.email = email;
            this.month = month;
            this.year = year;
            this.key = key;
@@ -48,22 +48,22 @@ public class CardObject  implements java.io.Serializable {
 
 
     /**
-     * Gets the customer_id value for this CardObject.
+     * Gets the email value for this CardObject.
      * 
-     * @return customer_id
+     * @return email
      */
-    public int getCustomer_id() {
-        return customer_id;
+    public java.lang.String getEmail() {
+        return email;
     }
 
 
     /**
-     * Sets the customer_id value for this CardObject.
+     * Sets the email value for this CardObject.
      * 
-     * @param customer_id
+     * @param email
      */
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+    public void setEmail(java.lang.String email) {
+        this.email = email;
     }
 
 
@@ -218,7 +218,9 @@ public class CardObject  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            this.customer_id == other.getCustomer_id() &&
+            ((this.email==null && other.getEmail()==null) || 
+             (this.email!=null &&
+              this.email.equals(other.getEmail()))) &&
             this.month == other.getMonth() &&
             this.year == other.getYear() &&
             ((this.key==null && other.getKey()==null) || 
@@ -245,7 +247,9 @@ public class CardObject  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        _hashCode += getCustomer_id();
+        if (getEmail() != null) {
+            _hashCode += getEmail().hashCode();
+        }
         _hashCode += getMonth();
         _hashCode += getYear();
         if (getKey() != null) {
@@ -272,9 +276,10 @@ public class CardObject  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://interfaces/", "cardObject"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("customer_id");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "customer_id"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setFieldName("email");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "email"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

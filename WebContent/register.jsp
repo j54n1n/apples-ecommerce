@@ -87,9 +87,9 @@
      <label for="owner">Owner *</label>
      <input type="text" required="required" name="owner">
                 <label for="cvv">CVV *</label>
-                <input type="password" required="required" name="ccv" pattern="[0-9]{3}" maxlength="3">
+                <input type="password" required="required" name="cvv"  id="cvv" pattern="[0-9]{3}" maxlength="3">
                 <label for="cardNumber">Card Number *</label>
-                <input type="text" required="required" name="cardNumber" pattern="[0-9]{3}" maxlength="16">
+                <input type="text" required="required" name="cardNumber" pattern="[0-9]{16}" maxlength="16">
                 <label>Expiration Date</label>
                 <select name="month">
                     <option value="01">January</option>

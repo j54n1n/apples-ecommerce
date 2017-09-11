@@ -1,24 +1,19 @@
 <%@page import="helpers.KeyHelper"%>
+<%@page import="interfaces.CardIntProxy"%>
 <%@page import="interfaces.LoginServiceIntProxy"%>
 <%@page import="interfaces.CustomerObject"%>
+<%@page import="interfaces.CardObject"%>
 <%@page import="interfaces.CustomerIntProxy"%>
+<%@page import="interfaces.OrderIntProxy"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
    <%
-   //If a new user has registered, cookie of others must be deleted
-    /* Cookie[] cookies = null;
-    cookies = request.getCookies();
-    for (Cookie c : cookies){
-      c.setMaxAge(0);
-      c.setPath("/");
-      response.addCookie(c);
-    }*/
    
    String name = request.getParameter("name");
    String surname = request.getParameter("surname");
    String email = request.getParameter("email");
-   String phonesignup = request.getParameter("phonesignup");
+   long phonesignup = Long.parseLong(request.getParameter("phonesignup"));
    String organization = request.getParameter("organization");
    String address = request.getParameter("address");
    String city = request.getParameter("city");
@@ -28,30 +23,35 @@
    String cvv = request.getParameter("cvv");
    String password = request.getParameter("password");
    String cardNumber = request.getParameter("cardNumber");
-
-      
+   String month = request.getParameter("month");
+   String year = request.getParameter("year");
+   CustomerIntProxy ccip = new CustomerIntProxy();
+   OrderIntProxy oip = new OrderIntProxy();
    LoginServiceIntProxy lsi = new LoginServiceIntProxy();
+   CardIntProxy cip = new CardIntProxy();
+   
    String publicK = lsi.getPublicKey();
    KeyHelper kh = new KeyHelper(publicK);
-   boolean ct = lsi.createNewUser(name, surname, email, Integer.parseInt(phonesignup), organization, city, address, zipCode);
-   if (ct) {
-	   int result = lsi.login(email, pwd);
-       String token = lsi.getCookieToken();
-	   Cookie cToken = new Cookie("token", token);
-	   cToken.setMaxAge(60*60*30);
-	   response.addCookie(cToken);
-	   lsi.insertNewToken(result, token);
-	   
-       session.setAttribute("name", email);
-
-       session.setAttribute("email", email);
-       session.setAttribute("logged", true);
-       session.setAttribute("customer_id", result);
-	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Registration succesfully"));
-   	   		
+   CardObject co = new CardObject(email,Integer.parseInt(month),Integer.parseInt(year),"0",kh.encryptString(cardNumber),kh.encryptString(cvv),name + " " +surname, Integer.parseInt(cardNumber.subSequence(12, 16).toString()));
+   cip.addCard(co);
+   boolean ct = lsi.createNewUser(name, surname, email, (int)phonesignup, organization, city, address, zipCode);
+   int id = ccip.findByEmail(email);
+   
+   Cookie[] cookies = request.getCookies();
+   Cookie myCookie = null;
+   if (cookies != null) {
+    for (Cookie cookie : cookies) {
+      if (cookie.getName().equals("cart")) {
+         myCookie = cookie;
+       }
+     }
    }
-   else
-	    response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=" + lsi.getError()));
+   int cartId = Integer.parseInt(myCookie.getValue());
+   oip.addOrder(Integer.parseInt(oip.getGUUID()), cartId, id, Integer.parseInt(cardNumber.subSequence(12, 16).toString()));
+  
+   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/index.jsp?message=Order sent!"));
+   	   		
+
   %>
  
   
