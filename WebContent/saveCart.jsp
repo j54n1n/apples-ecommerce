@@ -7,6 +7,7 @@
 
  <%  
    String cart_id = request.getParameter("cart_id");
+   boolean order = Boolean.parseBoolean(request.getParameter("order"));
    CartIntProxy cip = new CartIntProxy();
    CartEntryObject[] ceos = cip.getCartContent(Integer.parseInt(cart_id));
   
@@ -33,8 +34,10 @@
 		   int quantity   =  Integer.parseInt(product.split(",")[1].replace("kg", "").replace(" ", ""));
 		   cip.updateCart(Integer.parseInt(cart_id), product_id, quantity); 		   
 		   for (int i = 0; i < ceos.length; i++){
+			   if (ceos[i] != null){
 			   if (ceos[i].getProduct_id() == product_id)
 				   ceos[i] = null;
+			   }
 		   }
 	   }
 	   }
@@ -46,9 +49,11 @@
 	   myCookie.setMaxAge(0);
 	   myCookie.setValue("");
 	   response.addCookie(myCookie);
-	   response.sendRedirect(String.format("%s%s", request.getContextPath(), "/cart.jsp"));
-   
-   
+	   if (!order)
+	      response.sendRedirect(String.format("%s%s", request.getContextPath(), "/cart.jsp"));
+	   else
+		  response.sendRedirect(String.format("%s%s", request.getContextPath(), "/doOrder.jsp?cart_id="+cart_id));
+
    
    }
 

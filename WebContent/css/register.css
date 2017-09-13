@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+    margin-left: 280px;
+}
+
+td, th {
+    border: 1px solid #4CAF50;
+    text-align: center;
+   
+}
+
+tr:nth-child(even) {
+    background-color: #4CAF50;
+}
+
+input, select
+{
+    vertical-align:middle;
+}
+
+sub
+{
+    vertical-align: sub;
+    font-size: smaller;
+}
+strong
+{
+	font-weight:bold;
+}
+sup
+{
+    vertical-align: super;
+    font-size: smaller;
+}
+h3
+{
+	display: inline;
+    font-size: 13px;
+}
+textarea
+{
+    overflow: auto;
+}
+
+input[type="radio"]
+{
+    vertical-align: text-bottom;
+}
+
+input[type="checkbox"]
+{
+    vertical-align: bottom;
+}
+input
+{
+   size:1500px;
+}

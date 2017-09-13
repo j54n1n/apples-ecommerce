@@ -15,11 +15,40 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 <title>Apples e-commerce Product</title>
 </head>
 <body>
 	<div id="page">
+	
+					<div id="id05" class="modal">
+			<form class="modal-content animate">
+				<div class="imgcontainer">
+					<span
+						onclick="document.getElementById('id05').style.display='none'"
+						class="close" title="Close Modal">&times;</span>
+				</div>
+				<div class="container">
+					<label><b>
+							<%out.print(request.getParameter("message")); %>
+					</b></label>
+				</div>
+				<div class="container" style="background-color: #f1f1f1">
+					<button type="button"
+						onclick="document.getElementById('id05').style.display='none'"
+						class="cancelbtn">Close</button>
+				</div>
+			</form>
+		</div>
+		
+    <c:if test="${not empty param.message}" >
+	 <script>
+    		document.getElementById('id05').style.display='block'
+	</script>  
+ 	</c:if>
 		<c:import url="include/header.inc.jsp" />
 		<c:import url="include/navigation.inc.jsp" />
 		<div class="productPage">
@@ -67,6 +96,13 @@
 				</div>
 
 			</div>
+			
+			
+			<div class="availability">
+						<%out.print("Availability: " + product.getQuantity()); %>
+				</div>
+			
+			
 			
 			<div class="summary">
 					<%out.print(product.getSummary()); %>

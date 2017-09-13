@@ -16,68 +16,6 @@ fieldset, form, label, legend,
     
 }
 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 60%;
-    margin-left: 280px;
-}
-
-td, th {
-    border: 1px solid #4CAF50;
-    text-align: center;
-   
-}
-
-tr:nth-child(even) {
-    background-color: #4CAF50;
-}
-
-
-
-input, select
-{
-    vertical-align:middle;
-}
-
-sub
-{
-    vertical-align: sub;
-    font-size: smaller;
-}
-strong
-{
-	font-weight:bold;
-}
-sup
-{
-    vertical-align: super;
-    font-size: smaller;
-}
-h3
-{
-	display: inline;
-    font-size: 13px;
-}
-textarea
-{
-    overflow: auto;
-}
-
-input[type="radio"]
-{
-    vertical-align: text-bottom;
-}
-
-input[type="checkbox"]
-{
-    vertical-align: bottom;
-}
-input
-{
-   size:1500px;
-}
-
 
 
 button, input, select, textarea
@@ -210,7 +148,7 @@ div.clear
 {
 	marign:15px 0 0 0;
 	width:180px;
-	height: 10000px;
+	height: 5000px;
 	padding:5px;
 	float:left;
 }
@@ -384,32 +322,6 @@ span.psw {
     cursor: pointer;
 }
 
-/* Add Zoom Animation */
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-}
-    
-@keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-}
 
 .cbp-pgcontainer {
 	width: 100%;
@@ -2151,26 +2063,7 @@ a.ui-button:active,
   border: 1px solid #4CAF50;
 }
 
-/* Product Image */
-.image {
-  border: 1px;
-  width: 300px;
-}
 
-/* Product Quantity */
-.quantity {
-  position: absolute;
-  left: 70%;
-  padding-top: 20px;
-  margin-right: 60px;
-  margin-left: 60px;
-  heigth: 100%;
-}
-.quantity input {
-  font-size: 16px;
-  text-align: center; 
-  color: #4CAF50;
-}
 
 .delete {
   height: auto;
@@ -2184,33 +2077,6 @@ a.ui-button:active,
 
 
 
-button[class*=btn] {
-	heigth:20px;
-	heigth:50px;
-	font-size:20px;
-}
-
-
-.buttonDelete {background-color: #f44336;} /* Red */ 
-
-
-.minus-btn img {
-  margin-top: 3px;
-}
-.plus-btn img {
-  margin-top: 3px;
-}
-
-
-/* Total Price */
-.total-price {
-  width: 100%;
-  padding-top: 330px;
-  text-align: right;
-  font-size: 30px;
-  color: #4CAF50;
-}
-
 /* Total Price */
 .select-card {
   width: 80%;
@@ -2222,48 +2088,6 @@ button[class*=btn] {
   border: 1;
 }
 
-/* Total Price */
-.titleHeader {
-  width: 80%;
-  margin-left: 280px;
-  margin-bottom: 30px;
-  font-size: 40px;
-  color: #4CAF50;
-  border: 1;
-}
-
-
-
-/* Total Price */
-.selects{
-  width: 40%;
-  padding-top:  50px;
-  padding-right: 50px;
-  padding-left: 50px;
-}
-
-.total-order {
-  width: 100%;
-  padding-top: 50px;  padding-bottom: 50px;
-  padding-right: 10px;
-  text-align: right;
-  font-size: 50px;
-  color: #4CAF50;
-}
-
-btn-order {
-  width: 10%;
-  text-align: left;
-  font-size: 50px;
-  color: #4CAF50;
-}
-
-btn-order2 {	
-  width: 10%;
-  text-align: rigth;
-  font-size: 50px;
-  color: #4CAF50;
-}
 
 
 /* Responsive */

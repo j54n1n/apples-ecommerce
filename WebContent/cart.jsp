@@ -12,6 +12,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" rev="stylesheet" type="text/css"
 	href="css/header.css" media="screen" />
+	
+<link rel="stylesheet" rev="stylesheet" type="text/css"
+	href="css/cart.css" media="screen" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
@@ -139,6 +142,8 @@
 
 		<script type="text/javascript">
     	 var array = null;
+    	 var changed=1;
+    	 
     
     	   function plusFunction(product,price,array1) {
     		 if (this.array == null)
@@ -146,6 +151,7 @@
     		 var quantity = document.getElementById("i"+product).value;
     		 document.getElementById("i"+product).value = (parseInt(quantity) + 1) + " kg";
     		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) + 1) * parseFloat(price) / 100) + " €";	
+    		 changed=0;
     		 total(array);
     	   } 
     	   
@@ -157,6 +163,7 @@
     		 if (parseInt(quantityInt) > 0){
       		 document.getElementById("i"+product).value = parseInt(quantity) - 1 + " kg";;
       		 document.getElementById("t"+product).innerHTML = ((parseFloat(quantity) - 1) * parseFloat(price) / 100) + " €";
+      		 changed=0;
       		 total(this.array);}
    	   		}  
     	   
@@ -178,6 +185,7 @@
     		   total = total.replace("€","");
     		   total = total.replace(" ","");
     		   total = parseFloat(total);
+    		   changed=0;
     		   var toRemove = parseFloat(document.getElementById("t"+id).innerHTML);
     		   var test = "";
     		  for(var i = array.length - 1; i >= 0; i--) {
@@ -205,7 +213,7 @@
     		      		 
     			  }
     		    document.cookie = name + "=" + value + expires + "; path=/";
-    		    window.location = ("saveCart.jsp?cart_id="+cartId);
+    		    window.location = ("saveCart.jsp?cart_id="+cartId+"&order=false");
     	   }
     	   
     	   
@@ -225,7 +233,10 @@
        		      		 
        			  }
        		    document.cookie = name + "=" + value + expires + "; path=/";
-       		    window.location = ("doOrder.jsp?cart_id="+cartId);
+       		    if (changed == 1){
+       		    	window.location = ("doOrder.jsp?cart_id="+cartId);}
+       		    else{
+       		    	window.location = ("saveCart.jsp?cart_id="+cartId+"&order=true");}
     		   
    	   }
     	 

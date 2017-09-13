@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="interfaces.OrderIntProxy"%>
+<%@page import="helpers.KeyHelper"%>
+<%@page import="interfaces.CartEntryObject"%>
+<%@page import="interfaces.CartIntProxy"%>
+<%@page import="interfaces.ProductIntProxy"%>
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,6 +15,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" rev="stylesheet" type="text/css"
 	href="css/header.css" media="screen" />
+	<link rel="stylesheet" rev="stylesheet" type="text/css"
+	href="css/register.css" media="screen" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 
@@ -16,6 +24,28 @@
 </head>
 <body>
 	<div id="page">
+	
+			<% 		
+					
+	CartIntProxy cip = new CartIntProxy();
+	String cart_id = (String) (request.getParameter("cart_id"));
+	System.out.println(cart_id);
+	CartEntryObject[] c = cip.getCartContent(Integer.parseInt(cart_id));
+	for (CartEntryObject obj : c) {
+
+		int quantity = obj.getQuantity();
+
+		ProductIntProxy pip = new ProductIntProxy();
+
+		if (quantity > pip.findProduct(obj.getProduct_id()).getQuantity()) {
+			response.sendRedirect(
+					String.format("%s%s", request.getContextPath(), "/cart.jsp?message=Quantity for product "
+							+ pip.findProduct(obj.getProduct_id()).getTitle() + " not available in stock!"));
+
+		}
+	}
+					
+		%>		
 
 		<c:import url="include/header.inc.jsp" />
 
@@ -32,6 +62,11 @@
 				<c:otherwise>
 
 					<c:out value="${param.success}"></c:out>
+					
+
+					
+					
+					
 
 					<form action="doRegistration.jsp" method="POST">
 						<label for="name">Name *: </label> <input type="text" value=""

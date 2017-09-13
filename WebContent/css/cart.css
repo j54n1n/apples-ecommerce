@@ -1,0 +1,99 @@
+@CHARSET "UTF-8";
+
+img {
+width="10";
+height="10";
+}
+
+
+/* Product Image */
+.image {
+  border: 1px;
+  width: 300px;
+}
+
+/* Product Quantity */
+.quantity {
+  position: absolute;
+  left: 70%;
+  padding-top: 20px;
+  margin-right: 60px;
+  margin-left: 60px;
+  heigth: 100%;
+}
+.quantity input {
+  font-size: 16px;
+  text-align: center; 
+  color: #4CAF50;
+}
+
+
+
+button[class*=btn] {
+	heigth:20px;
+	heigth:50px;
+	font-size:20px;
+}
+
+
+.buttonDelete {background-color: #f44336;} /* Red */ 
+
+
+.minus-btn img {
+  margin-top: 3px;
+}
+.plus-btn img {
+  margin-top: 3px;
+}
+
+
+/* Total Price */
+.total-price {
+  width: 100%;
+  padding-top: 330px;
+  text-align: right;
+  font-size: 30px;
+  color: #4CAF50;
+}
+
+
+/* Total Price */
+.titleHeader {
+  width: 80%;
+  margin-left: 280px;
+  margin-bottom: 30px;
+  font-size: 40px;
+  color: #4CAF50;
+  border: 1;
+}
+
+/* Total Price */
+.selects{
+  width: 40%;
+  padding-top:  50px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.total-order {
+  width: 100%;
+  padding-top: 50px;  padding-bottom: 50px;
+  padding-right: 10px;
+  text-align: right;
+  font-size: 50px;
+  color: #4CAF50;
+}
+
+btn-order {
+  width: 10%;
+  text-align: left;
+  font-size: 50px;
+  color: #4CAF50;
+}
+
+btn-order2 {	
+  width: 10%;
+  text-align: rigth;
+  font-size: 50px;
+  color: #4CAF50;
+}
